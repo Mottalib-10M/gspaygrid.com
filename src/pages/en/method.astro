@@ -1,0 +1,62 @@
+---
+/** Method: data, formulas, checks and limits. Every figure from the kit. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { src, table } from '../../lib/helpers';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('method', lang);
+const P = K.P;
+const title = 'GS Pay and FERS Method 2026: OPM Tables, Title 5, Checks';
+const description = 'How the 2026 GS pay and FERS calculators work: OPM XML tables and locality definitions, the rounding and cap rules, 5 U.S.C. 8412 to 8462, and the tests we run.';
+const cells = K.AREAS.length * 150;
+const mraRows = [1947, 1948, 1950, 1952, 1953, 1964, 1965, 1967, 1969, 1970].map((y) => [String(y), K.ym(K.mra(y))]);
+const ex = K.fers({ birthYear: 1970, retireAgeMonths: 57 * 12, serviceMonths: 30 * 12, high3: 100000, survivor: 'full', ss62: 2000, sickHours: 1044 });
+const ex10 = K.fers({ birthYear: 1970, retireAgeMonths: 57 * 12, serviceMonths: 15 * 12, high3: 90000 });
+const cola = [0.015, 0.02, 0.025, 0.03, 0.036, 0.05].map((c) => [K.pct(c, 1), K.pct(K.cola(c), 1)]);
+const p = K.pay(12, 1, 'DCB');
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'How the figures are built', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'How the figures are built', path }])]} breadcrumbs={[{ label: 'How the figures are built' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>How the figures are built</h1>
+    <p>Every calculator on this site runs in your browser on one engine and three data files: the {P.year} pay tables, the county list of each locality area, and a parameter file that holds each legal rule and amount with the official text it comes from and the date it was read ({K.day(P.retrieved_at)} for this edition). Nothing you type leaves your browser. This page lists the data, the formulas, the checks and what is deliberately left out.</p>
+
+    <h2>Pay tables: rebuilt, then checked against OPM</h2>
+    <p>We start from OPM's {P.year} base General Schedule table and the {K.AREAS.length} locality percentages. Each locality rate is computed the way OPM describes it: base rate times one plus the percentage, rounded to the nearest dollar, then limited to the rate for level IV of the Executive Schedule, {K.usd(K.CAP)}. For GS-1 to GS-4, the result is compared with special rate table 001M and the higher figure is paid. Our data script then reads OPM's own XML file for each of the {K.AREAS.length} areas (<Fragment set:html={src('opm_gs_2026', 'OPM 2026 salary tables')} />) and compares every cell: <strong>all {K.num(cells)} cells of the {K.AREAS.length} tables match to the dollar</strong>, and the hourly and overtime rates match to the cent. If a single cell differed, the tests would fail and nothing would be published.</p>
+    <Fragment set:html={table(['Figure', 'Rule', 'Example: GS-12 step 1, Washington'], [
+      ['Annual rate', 'base x (1 + locality %), rounded to the dollar, capped at EX-IV', K.usd(p.annual)],
+      ['Hourly rate', 'annual / 2,087, rounded to the cent (5 U.S.C. 5504)', K.usd2(p.hourly)],
+      ['Biweekly gross', 'hourly x 80', K.usd2(p.biweekly)],
+      ['Overtime (title 5)', '1.5 x hourly up to GS-10 step 1; above, the greater of hourly and 1.5 x GS-10 step 1', K.usd2(p.overtime)],
+    ], 'Pay formulas applied to every cell.', ['l', 'l', 'r'])} />
+
+    <h2>From county to locality area</h2>
+    <p>The county list comes from OPM's {P.year} locality pay area definitions (<Fragment set:html={src('opm_locality_defs', 'opm.gov')} />): {K.num(K.countyCount)} counties and independent cities in {K.stateCount} states and the District, each assigned to its area. Any county not on the list is in Rest of U.S., as are Puerto Rico, Guam, the U.S. Virgin Islands and the other nonforeign areas; Alaska and Hawaii are each a single area. The area is set by the official worksite, not the home, under 5 CFR 531.605.</p>
+
+    <h2>Step increases and promotions</h2>
+    <p>Waiting periods for within-grade increases are those of 5 CFR 531.405: {P.career.wgiWeeks.slice(0, 3)[0]} weeks for steps 2 to 4, {P.career.wgiWeeks[3]} weeks for steps 5 to 7, {P.career.wgiWeeks[6]} weeks for steps 8 to 10, so {K.yearsTo10()} years from step 1 to step 10. Dates are counted in months from the time you say you have spent in your step; we never print a calendar date, since we do not know your exact effective date. Promotions follow the standard two-step method of 5 CFR 531.214(d)(3): your GS base rate plus two step increments of your current grade, turned into a payable rate with your locality percentage (or table 001M), then the lowest step of the new grade that equals or exceeds it.</p>
+
+    <h2>FERS annuity</h2>
+    <p>Eligibility follows 5 U.S.C. 8412 and 8414: 62 with 5 years, 60 with 20, the MRA with 30, the MRA with 10 (reduced), early retirement under a VERA or a discontinued service retirement at 50 with 20 or at any age with 25, and the special provisions for law enforcement officers, firefighters and air traffic controllers. The MRA depends on the year of birth:</p>
+    <Fragment set:html={table(['Born in', 'MRA'], mraRows, 'Minimum retirement age (5 U.S.C. 8412(h)).', ['l', 'r'])} />
+    <p>The basic annuity is the high-3 times the years and months of creditable service times 1 %, or 1.1 % when you separate at 62 or older with at least 20 years; under the special provisions, 1.7 % for the first 20 years and 1 % beyond. Unused sick leave is converted at 2,087 hours a year and added to the service used in the computation of an immediate or MRA+10 annuity, never to the service needed for eligibility, never to a deferred annuity. The MRA+10 reduction is 5/12 of 1 % for each month under 62 at the start of the annuity, waived when the annuity starts at 60 or later with 20 years. A full survivor annuity costs 10 % and pays 50 % of the unreduced annuity; a partial one costs 5 % and pays 25 %.</p>
+    <p>Example: born in 1970, leaving at 57 with 30 years, a high-3 of {K.usd(100000)}, {K.num(1044)} hours of sick leave and a full survivor election gives {K.usd(ex.gross)} a year before the survivor cut and {K.usd(ex.net)} after it. The same person with 15 years under MRA+10, starting at 57, gets {K.usd(ex10.net)} a year after a {K.pct(ex10.ageReductionPct, 0)} reduction.</p>
+
+    <h2>FERS supplement and Social Security</h2>
+    <p>The supplement (5 U.S.C. 8421) is your Social Security estimate at 62 times your FERS civilian years, rounded to the nearest year, divided by 40. You can type the figure from your SSA statement; if you do not, we estimate it roughly from your salary and career length with this year's bend points ({K.usd(P.ssa.bendPoints[0])} and {K.usd(P.ssa.bendPoints[1])}), the wage base of {K.usd(P.ssa.wageBase)} and a 70 % factor for claiming at 62. That estimate ignores the wage indexing of each past year and is labeled as such. The earnings test (5 U.S.C. 8421a) withholds $1 for every $2 of wages above {K.usd(P.ssa.earningsTest.exempt2026)} in {P.year}. In the example above, the supplement is {K.usd(ex.supplement)} a year.</p>
+
+    <h2>Cost-of-living adjustments</h2>
+    <p>The FERS COLA under 5 U.S.C. 8462 is the CPI-W increase up to 2 %, 2 % when the increase is between 2 % and 3 %, and the increase minus one point above 3 %. Regular retirees receive it only from 62; retirees under the special provisions, disability retirees and survivors receive it at any age. The first COLA after retirement is prorated; our projections ignore that proration.</p>
+    <Fragment set:html={table(['CPI-W increase', 'FERS COLA'], cola, `The rule applied. For ${P.year + 1}, Social Security's ${K.pct(P.fers.cola.y2027.ss, 1)} gives FERS ${K.pct(P.fers.cola.y2027.fers, 1)}.`, ['r', 'r'])} />
+
+    <h2>Figures that are not official yet</h2>
+    <p>The {P.year + 1} raise, the {P.year + 1} pay cap and the {P.year + 1} earnings test amount are not set as of {K.day(P.retrieved_at)}. They are empty in our parameter file on purpose. The {P.year + 1} raise page shows scenarios built on the {P.year} tables, labeled as scenarios, and the President's proposal of {K.dec(P.pay.y2027.planRaise, 1)} % as a proposal. When OPM publishes the {P.year + 1} tables, we will enter the official figures, rebuild every cell and check it against the new files.</p>
+
+    <h2>Tests</h2>
+    <p>Before each release, automated tests check every pay cell against OPM's files, the overtime cap in every area, the MRA table, the 1 % and 1.1 % multipliers, the MRA+10 reduction, the sick leave conversion, the supplement and its earnings test, the survivor costs, the COLA rule, the two-step promotion rule and the TSP match. The pages themselves draw their figures from the same functions as the calculators, so a corrected rule changes every page that cites it.</p>
+
+    <h2>What is left out</h2>
+    <p>CSRS and CSRS Offset, disability retirement, part-time service, military deposits, the deposit or redeposit of civilian service, the court-ordered division of an annuity, FEHB and FEGLI premiums, income tax and state tax on the annuity. Pay systems other than the General Schedule and occupational special rate tables beyond 001M are not computed. None of the results is an official determination: your SF-50, your leave and earnings statement and OPM Retirement Services are.</p>
+  </article>
+</PageLayout>

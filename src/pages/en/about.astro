@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL } from '../../data/site-config';
+import { src } from '../../lib/helpers';
+import { KIT as K } from '../../lib/kit';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('about', lang);
+const P = K.P;
+const title = 'GS Pay and FERS Calculators 2026: Who Publishes This Site';
+const description = 'GS Pay and Pension is published by Radif Partners: 2026 GS pay tables rebuilt from OPM files and FERS calculators from title 5, with no e-mail and no adviser.';
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path }])]} breadcrumbs={[{ label: 'About' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>About GS Pay and Pension</h1>
+    <p>{AUTHOR_DESC.en}</p>
+    <h2>Why this site exists</h2>
+    <p>A federal employee who wants a simple answer, what will I earn at this grade in this county, and what will I get when I retire, usually ends up with two kinds of pages. Pay charts reprint the OPM tables as images or PDFs and leave you to find your locality area among {K.AREAS.length} names. Retirement calculators run by financial firms ask for a name and an e-mail, compute the basic annuity, and invite you to book a review for the rest. Some still print last year's figures, or a 0 % raise for {P.year} when the actual raise was {K.dec(K.RAISE, 1)} %.</p>
+    <p><strong>This site does better than the first Google result because it gives, without an e-mail or an appointment, the exact {P.year} pay of any grade, step and county (all {K.num(K.AREAS.length * 150)} cells of the OPM tables reproduced to the dollar, with the {K.dec(K.RAISE, 1)} % raise, the frozen localities, the {K.usd(K.CAP)} cap and table 001M) and, on the same site, the complete FERS pension that most calculators leave half done: the minimum retirement age in years and months, the supplement with the {K.usd(P.ssa.earningsTest.exempt2026)} earnings test, the survivor election, the FERS COLA, deferred and postponed annuities, and a {P.year + 1} scenario clearly marked as a proposal.</strong></p>
+    <h2>Who publishes it</h2>
+    <p>The site is published by {AUTHOR_NAME}, a company that builds calculators on public rules. It is not a government agency and is not affiliated with the Office of Personnel Management, any federal agency, union, employee association or financial firm. It is not a financial adviser, sells no product, takes no commission and has no partner to send you to. Pages carry no affiliate link and no advertising.</p>
+    <LegalIdentity lang={lang} />
+    <h2>What we rely on</h2>
+    <p>For pay: OPM's {P.year} General Schedule tables in their XML form (<Fragment set:html={src('opm_gs_2026', 'opm.gov')} />), the {P.year} locality pay area definitions, special rate table 001M, Executive Order {P.pay.eo.number} and the Executive Schedule. For careers: 5 CFR part 531 on step increases and promotions, and the October {P.year} final rule on time in grade. For retirement: chapter 84 of title 5 of the U.S. Code (sections 8412 to 8462), OPM's FERS computation pages and the CSRS and FERS Handbook, the Social Security Administration's {P.year} determinations for the earnings test and the benefit formula, and IRS limits for the TSP.</p>
+    <h2>What the site leaves out</h2>
+    <p>Pay systems other than the General Schedule (Federal Wage System, SES, agency pay bands), occupational special rate tables beyond 001M, CSRS and CSRS Offset annuities, disability retirement, military service deposits and the computation of a part-time career are not modeled. Social Security is estimated only as far as the FERS supplement needs it. The <a href={route('method', lang)}>method page</a> lists every formula, test and limit; the <a href={route('editorial', lang)}>editorial policy</a> explains how corrections are made.</p>
+    <h2>Contact</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, for corrections and sources. We answer questions about a rule or a figure, not about your personal case: your agency's human resources office and OPM Retirement Services make the official determinations.</p>
+  </article>
+</PageLayout>

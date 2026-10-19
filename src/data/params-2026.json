@@ -70,7 +70,6 @@
       "planLocality": "unchanged from 2026",
       "statutoryRaiseWithoutPlan": 3.1,
       "statutoryAvgLocalityWithoutPlan": 20.6,
-      "lawEnforcementRaise": 3.8,
       "houseBill": "H.R. 8495",
       "houseReport": "H. Rept. 119-623",
       "houseReportDate": "2026-04-24",
@@ -97,7 +96,11 @@
     "localityRange": [
       17.06,
       46.34
-    ]
+    ],
+    "leo2026": {
+      "upToTotalRaise": 3.8,
+      "rule": "EO 14368 sec. 4: OPM may raise certain federal civilian law enforcement personnel up to 3.8 % in total (1 % included), special rate tables on opm.gov"
+    }
   },
   "career": {
     "wgiWeeks": [
@@ -113,7 +116,11 @@
     ],
     "timeInGradeRule": {
       "published": "2026-10-19",
-      "effective": "2027-01-19"
+      "effective": "2027-01-19",
+      "title": "Elimination of Time-in-Grade (final rule, 5 CFR part 300 subpart F)",
+      "frDoc": "2026-21319",
+      "proposed": "2026-05-28",
+      "rule": "Until January 18, 2027: 52 weeks at the next lower grade (two grades lower for GS-6 to GS-11 two-grade-interval positions) before advancement to GS-6 or above. From January 19, 2027: no time-in-grade requirement; qualification standards and specialized experience still apply."
     }
   },
   "fers": {
@@ -530,6 +537,90 @@
       "url": "https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-531/subpart-F/section-531.605",
       "label": {
         "en": "5 CFR 531.605, official worksite for locality pay"
+      }
+    },
+    "usc_8401": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8401",
+      "label": {
+        "en": "5 U.S.C. 8401, FERS definitions (lump-sum credit, revised and further revised annuity employees)"
+      }
+    },
+    "fr_tig_2026": {
+      "url": "https://www.federalregister.gov/documents/2026/10/19/2026-21319/elimination-of-time-in-grade",
+      "label": {
+        "en": "OPM, Elimination of Time-in-Grade, final rule (Federal Register, October 19, 2026)"
+      }
+    },
+    "usc_8413": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8413",
+      "label": {
+        "en": "5 U.S.C. 8413, FERS deferred retirement"
+      }
+    },
+    "usc_8424": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8424",
+      "label": {
+        "en": "5 U.S.C. 8424, lump-sum refund of FERS contributions"
+      }
+    },
+    "usc_8425": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8425",
+      "label": {
+        "en": "5 U.S.C. 8425, mandatory separation of LEOs, firefighters and air traffic controllers"
+      }
+    },
+    "opm_fehb_annuitants": {
+      "url": "https://www.opm.gov/healthcare-insurance/healthcare/reference-materials/reference/annuitants/",
+      "label": {
+        "en": "OPM, FEHB reference for annuitants (continuing coverage, deferred annuities)"
+      }
+    },
+    "opm_annuity_payments": {
+      "url": "https://www.opm.gov/retirement-center/my-annuity-and-benefits/annuity-payments/",
+      "label": {
+        "en": "OPM, annuity payments and the December 2025 COLA"
+      }
+    },
+    "usc_5504": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/5504",
+      "label": {
+        "en": "5 U.S.C. 5504, biweekly pay periods; computation of pay"
+      }
+    },
+    "usc_5542": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/5542",
+      "label": {
+        "en": "5 U.S.C. 5542, overtime rates; computation"
+      }
+    },
+    "usc_5547": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/5547",
+      "label": {
+        "en": "5 U.S.C. 5547, limitation on premium pay"
+      }
+    },
+    "usc_5545": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/5545",
+      "label": {
+        "en": "5 U.S.C. 5545, night, standby, irregular and hazardous duty differential"
+      }
+    },
+    "usc_5546": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/5546",
+      "label": {
+        "en": "5 U.S.C. 5546, pay for Sunday and holiday work"
+      }
+    },
+    "opm_quick_guide": {
+      "url": "https://www.opm.gov/retirement-center/apply/quick-guide/",
+      "label": {
+        "en": "OPM, Retirement Quick Guide (steps, interim payments, final computation)"
+      }
+    },
+    "opm_survivor_benefits": {
+      "url": "https://www.opm.gov/retirement-center/survivor-benefits/",
+      "label": {
+        "en": "OPM, survivor benefits (FERS elections at retirement)"
       }
     }
   }

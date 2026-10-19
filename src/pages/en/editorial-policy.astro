@@ -1,0 +1,21 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy of GS Pay and Pension 2026: sources, fixes" description="How GS Pay and Pension writes its 2026 GS pay and FERS pages: OPM files and title 5 only, every amount read from one parameter file, proposals labeled, no money from advisers." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Editorial policy</h1>
+    <h2>What counts as a source</h2>
+    <p>Only primary texts: OPM's salary tables and their XML files, OPM's locality pay area definitions and special rate tables, executive orders and notices in the Federal Register, title 5 of the U.S. Code and of the Code of Federal Regulations, OPM's retirement publications, the Social Security Administration's annual determinations, and IRS limits. News articles, union bulletins and other calculators can point us to a change; we publish it only once we have read the primary text.</p>
+    <h2>How a figure reaches a page</h2>
+    <p>Each amount is entered once, in a parameter file, with the link to its source and the date it was read. Pages and calculators read that file; nobody types a figure into a page. When an amount changes, every page that uses it changes at the same time, and the date at the top of the page tells you which edition you are reading.</p>
+    <h2>Proposals are labeled</h2>
+    <p>A raise proposed by the President, a bill reported by a committee or a cost-of-living figure not yet confirmed by OPM is shown as a proposal or a scenario, with its date, never as a rate. A figure we could not confirm is not published. Assumptions you can change in a calculator (inflation, raises, your Social Security estimate) are marked as yours.</p>
+    <h2>Independence</h2>
+    <p>{AUTHOR_NAME} receives nothing from financial advisers, insurers, plan providers or employee organizations, and the site carries no advertising and no affiliate links. It is not affiliated with OPM or any agency, and it does not present itself as one.</p>
+    <h2>Review and corrections</h2>
+    <p>Every page is reviewed at least every {REVIEW_CYCLE_MONTHS} months and whenever a rule or table it relies on changes: in practice, each January for pay and each October for the COLA and Social Security figures. A reported error is checked against the primary text; if we were wrong, the page is corrected and dated. Write through the <a href={route('contact', lang)}>contact page</a>.</p>
+  </div>
+</PageLayout>
