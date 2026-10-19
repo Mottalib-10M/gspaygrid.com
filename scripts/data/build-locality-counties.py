@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Rebuilds src/data/counties-2026.json (county -> locality pay area) from the OPM page
-"2026 Locality Pay Area Definitions" saved in research/opm-2026-locality-definitions.html.
+"2026 Locality Pay Area Definitions" saved in research/raw/opm-2026-locality-definitions.html.
 Source: https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2026/locality-pay-area-definitions/
 Usage: python3 scripts/data/build-locality-counties.py"""
 import re, html, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-t = open(os.path.join(ROOT, 'research', 'opm-2026-locality-definitions.html'), errors='ignore').read()
+t = open(os.path.join(ROOT, 'research', 'raw', 'opm-2026-locality-definitions.html'), errors='ignore').read()
 t = t[t.find('2026 Locality Pay Area Definitions'):]
 gs = json.load(open(os.path.join(ROOT, 'src', 'data', 'gs-2026.json')))
 by_name = {a['name']: a['code'] for a in gs['areas']}

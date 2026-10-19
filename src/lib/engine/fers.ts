@@ -56,10 +56,10 @@ export function kindOf(age: number, service: number, mra: number, plan: Plan = '
 export function multiplier(startAge: number, serviceYearsNoSick: number, plan: Plan, countedYears: number) {
   if (plan === 'special') {
     const first = Math.min(20, countedYears);
-    return { rate: (F.special.first20 * first + F.regular.base * Math.max(0, countedYears - 20)) / Math.max(countedYears, 1e-9), text: `${F.special.first20 * 100} % for the first 20 years, ${F.regular.base * 100} % after` };
+    return { rate: (F.special.first20 * first + F.regular.base * Math.max(0, countedYears - 20)) / Math.max(countedYears, 1e-9), text: `${+(F.special.first20 * 100).toFixed(2)} % for the first 20 years, ${+(F.regular.base * 100).toFixed(2)} % after` };
   }
   const enhanced = startAge >= F.regular.enhancedAge * 12 && serviceYearsNoSick >= F.regular.enhancedYears;
-  return { rate: enhanced ? F.regular.enhanced : F.regular.base, text: enhanced ? `${(F.regular.enhanced * 100).toFixed(1)} % (age ${F.regular.enhancedAge} with ${F.regular.enhancedYears} years)` : `${F.regular.base * 100} %` };
+  return { rate: enhanced ? F.regular.enhanced : F.regular.base, text: enhanced ? `${(F.regular.enhanced * 100).toFixed(1)} % (age ${F.regular.enhancedAge} with ${F.regular.enhancedYears} years)` : `${+(F.regular.base * 100).toFixed(2)} %` };
 }
 
 /** Estimated Social Security retirement benefit at 62, the base of the supplement (approximation). */
@@ -93,21 +93,26 @@ export function fers(i: FersIn): FersOut {
   const counted = Math.floor(i.serviceMonths + sick); // whole months; extra days are dropped
   const countedYears = counted / 12;
   // The 1.1 % test looks at the age at separation, not at the first payment (OPM, computation).
-  const m = multiplier(i.retireAgeMonths, i.serviceMonths / 12, plan, countedYears);
+  // 1.7 % only for a retirement under the special provisions themselves (5 U.S.C. 8415(e)).
+  const m = multiplier(i.retireAgeMonths, i.serviceMonths / 12, plan === 'special' && rule.startsWith('Special provisions') ? 'special' : 'regular', countedYears);
   const gross = i.high3 * countedYears * m.rate;
   // MRA+10 (and a deferred annuity taken at the MRA with 10 to 19 years): 5/12 % per month under 62,
   // waived from 60 with 20 years.
   let agePct = 0;
   const reduced = kind === 'mra10' || (kind === 'deferred' && i.serviceMonths >= 120);
-  if (reduced && !(startAge >= 60 * 12 && i.serviceMonths >= 240)) agePct = Math.max(0, 62 * 12 - startAge) * (F.mra10ReductionPerYear / 12);
+  // 8415(h)(2): no reduction if, at the start, the record meets 8412(a) (MRA with 30) or 8412(b) (60 with 20).
+  if (reduced && !(startAge >= 60 * 12 && i.serviceMonths >= 240) && !(startAge >= mra && i.serviceMonths >= 360)) agePct = Math.max(0, 62 * 12 - startAge) * (F.mra10ReductionPerYear / 12);
   const reduction = gross * agePct;
   const afterAge = gross - reduction;
   const cutPct = survivor === 'full' ? F.survivor.fullCost : survivor === 'partial' ? F.survivor.partialCost : 0;
   const survivorCut = afterAge * cutPct;
-  const survivorAnnuity = survivor === 'full' ? gross * F.survivor.fullBenefit : survivor === 'partial' ? gross * F.survivor.partialBenefit : 0;
+  // Base of the survivor annuity: the annuity after any age reduction, before the survivor cost (CSRS/FERS Handbook ch. 50).
+  const survivorAnnuity = survivor === 'full' ? afterAge * F.survivor.fullBenefit : survivor === 'partial' ? afterAge * F.survivor.partialBenefit : 0;
   const net = afterAge - survivorCut;
   const supEligible = (kind === 'immediate' || kind === 'earlyout') && startAge < 62 * 12 && !(i.retireAgeMonths >= 62 * 12);
-  const sup = supEligible && i.ss62 ? supplement(i.ss62, i.serviceMonths / 12, i.earnings ?? 0) : null;
+  // 8421a: earnings before the MRA do not count for retirees under the special provisions.
+  const exemptNow = plan === 'special' && rule.startsWith('Special provisions') && startAge < mra;
+  const sup = supEligible && i.ss62 ? supplement(i.ss62, i.serviceMonths / 12, exemptNow ? 0 : i.earnings ?? 0) : null;
   const label = kind === 'immediate' ? 'Immediate unreduced annuity' : kind === 'mra10' ? (agePct > 0 ? 'MRA+10 annuity, reduced' : 'MRA+10 annuity, postponed to avoid the reduction') : kind === 'earlyout' ? 'Early retirement annuity' : kind === 'deferred' ? 'Deferred annuity' : 'No annuity';
   return {
     kind, label, mra, eligible: kind !== 'none', startAge, serviceCounted: counted, multiplier: m.rate, gross, reduction, ageReductionPct: agePct,

@@ -9,10 +9,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 SRC = os.path.join(ROOT, 'research', f'opm-{YEAR}-xml')
 # Short display names and URL slugs (our own), keyed by the OPM table code.
 SHORT = {
- 'AQ': ('Albany', 'albany'), 'AL': ('Albuquerque', 'albuquerque'), 'ATL': ('Atlanta', 'atlanta'), 'AU': ('Austin', 'austin'),
+ 'AQ': ('Albuquerque', 'albuquerque'), 'AL': ('Albany', 'albany'), 'ATL': ('Atlanta', 'atlanta'), 'AU': ('Austin', 'austin'),
  'BH': ('Birmingham', 'birmingham'), 'BOS': ('Boston', 'boston'), 'BU': ('Buffalo', 'buffalo'), 'BN': ('Burlington', 'burlington'),
- 'CC': ('Charlotte', 'charlotte'), 'CHI': ('Chicago', 'chicago'), 'CIN': ('Cincinnati', 'cincinnati'), 'CLE': ('Cleveland', 'cleveland'),
- 'CS': ('Colorado Springs', 'colorado-springs'), 'COL': ('Columbus', 'columbus'), 'CT': ('Corpus Christi', 'corpus-christi'),
+ 'CC': ('Corpus Christi', 'corpus-christi'), 'CHI': ('Chicago', 'chicago'), 'CIN': ('Cincinnati', 'cincinnati'), 'CLE': ('Cleveland', 'cleveland'),
+ 'CS': ('Colorado Springs', 'colorado-springs'), 'COL': ('Columbus', 'columbus'), 'CT': ('Charlotte', 'charlotte'),
  'DFW': ('Dallas-Fort Worth', 'dallas-fort-worth'), 'DV': ('Davenport', 'davenport'), 'DAY': ('Dayton', 'dayton'), 'DEN': ('Denver', 'denver'),
  'DM': ('Des Moines', 'des-moines'), 'DET': ('Detroit', 'detroit'), 'FN': ('Fresno', 'fresno'), 'HB': ('Harrisburg', 'harrisburg'),
  'HAR': ('Hartford', 'hartford'), 'HOU': ('Houston', 'houston'), 'HNT': ('Huntsville', 'huntsville'), 'IND': ('Indianapolis', 'indianapolis'),
@@ -20,8 +20,8 @@ SHORT = {
  'MFL': ('Miami', 'miami'), 'MIL': ('Milwaukee', 'milwaukee'), 'MSP': ('Minneapolis', 'minneapolis'), 'NY': ('New York', 'new-york'),
  'OM': ('Omaha', 'omaha'), 'PB': ('Palm Bay', 'palm-bay'), 'PHL': ('Philadelphia', 'philadelphia'), 'PX': ('Phoenix', 'phoenix'),
  'PIT': ('Pittsburgh', 'pittsburgh'), 'POR': ('Portland', 'portland'), 'RA': ('Raleigh', 'raleigh'), 'RN': ('Reno', 'reno'),
- 'RCH': ('Richmond', 'richmond'), 'RT': ('Rochester', 'rochester'), 'SAC': ('Sacramento', 'sacramento'), 'SN': ('San Antonio', 'san-antonio'),
- 'SD': ('San Diego', 'san-diego'), 'SF': ('San Francisco', 'san-francisco'), 'SEA': ('Seattle', 'seattle'), 'SO': ('Spokane', 'spokane'),
+ 'RCH': ('Richmond', 'richmond'), 'RT': ('Rochester', 'rochester'), 'SAC': ('Sacramento', 'sacramento'), 'SN': ('Spokane', 'spokane'),
+ 'SD': ('San Diego', 'san-diego'), 'SF': ('San Francisco', 'san-francisco'), 'SEA': ('Seattle', 'seattle'), 'SO': ('San Antonio', 'san-antonio'),
  'SL': ('St. Louis', 'st-louis'), 'TU': ('Tucson', 'tucson'), 'VB': ('Virginia Beach', 'virginia-beach'), 'DCB': ('Washington DC', 'washington-dc'),
  'RUS': ('Rest of U.S.', 'rest-of-us'), 'AK': ('Alaska', 'alaska'), 'HI': ('Hawaii', 'hawaii'),
 }

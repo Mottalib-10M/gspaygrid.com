@@ -124,7 +124,7 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
       const { g, st } = gs(v), ng = Math.max(g + 1, Number(v.ng) || g + 1), pr = promote(g, st, ng, s(v, 'a'));
       return { label: `Promotion to GS-${pr.to.grade}`, value: `Step ${pr.to.step}`, sub: `${usd(pr.to.annual)}, a raise of ${sign(pr.raise)} (${pct(pr.raisePct, 1)}).`,
         rows: [[`Now: GS-${g} step ${st}`, usd(pr.from.annual), pr.from.annual], ['Plus two step increases of your grade', usd(pr.twoStepTarget), pr.twoStepTarget], [`New rate: GS-${pr.to.grade} step ${pr.to.step}`, usd(pr.to.annual), pr.to.annual], ['Waiting period for the next step', 'starts again']],
-        note: pr.capped ? 'The two-step result is above step 10 of the new grade: step 10 is the most you can get.' : ng > g + 1 ? 'A promotion of more than one grade is computed one grade at a time by some agencies; the result can differ by a step.' : undefined };
+        note: pr.capped ? 'The two-step result is above step 10 of the new grade: step 10 is the most you can get.' : undefined };
     },
   }),
   /* Hourly and overtime */
@@ -156,13 +156,13 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
       { id: 'sick', label: 'Unused sick leave', def: 1200, unit: 'h', max: 10000, adv: true, help: '2,087 hours add one year to the computation' },
       { id: 'ss', label: 'Your Social Security estimate at 62', def: 0, unit: '$/mo', max: 6000, adv: true, help: 'From your SSA statement; 0 = we estimate it' },
       { id: 'earn', label: 'Wages after you retire, per year', def: 0, unit: '$', max: 1000000, adv: true, help: 'Reduces the supplement above the SSA limit' },
-      { id: 'start', label: 'Start a postponed or deferred annuity at', def: 62, unit: 'yrs', max: 70, adv: true },
+      { id: 'start', label: 'Start a postponed or deferred annuity at', def: 0, unit: 'yrs', max: 70, adv: true, help: '0 = as early as allowed (deferred: 62)' },
       { kind: 'choice', id: 'eo', label: 'Early-out offer (VERA or DSR)', def: 'no', options: [{ value: 'no', label: 'No' }, { value: 'yes', label: 'Yes' }], adv: true } as Input,
     ],
     run: (v) => {
       const by = Number(v.by), age = ageMonths(v), svc = Math.round(n(v, 'sy') * 12 + n(v, 'sm'));
       const ss = n(v, 'ss') > 0 ? n(v, 'ss') : ss62Estimate(n(v, 'h3'), Math.max(n(v, 'sy'), Math.min(35, n(v, 'ra') - 22))).at62;
-      const r = fers({ birthYear: by, retireAgeMonths: age, serviceMonths: svc, high3: n(v, 'h3'), sickHours: n(v, 'sick'), plan: s(v, 'pl') as Plan, survivor: s(v, 'sv') as Survivor, ss62: ss, earnings: n(v, 'earn'), startAgeMonths: n(v, 'start') * 12, earlyOut: s(v, 'eo') === 'yes' });
+      const r = fers({ birthYear: by, retireAgeMonths: age, serviceMonths: svc, high3: n(v, 'h3'), sickHours: n(v, 'sick'), plan: s(v, 'pl') as Plan, survivor: s(v, 'sv') as Survivor, ss62: ss, earnings: n(v, 'earn'), startAgeMonths: n(v, 'start') > 0 ? n(v, 'start') * 12 : undefined, earlyOut: s(v, 'eo') === 'yes' });
       if (!r.eligible) return { label: 'FERS annuity', value: usd(0), sub: r.rule, rows: [['Your MRA', fmtYM(r.mra)]] };
       const rows: Array<[string, string, number?]> = [
         [`Basic annuity (${svcYM(r.serviceCounted)} counted)`, usd(r.gross), r.gross],
@@ -172,7 +172,7 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
         ['Your MRA', fmtYM(r.mra)],
         ...(r.survivorAnnuity > 0 ? [['Survivor would receive', `${usd(r.survivorAnnuity / 12)}/mo`] as [string, string]] : []),
       ];
-      return { label: `${r.label}, from age ${fmtYM(r.startAge)}`, value: `${usd(r.net / 12)}/mo`, sub: `${usd(r.net)} a year${r.supplementAfterTest > 0 ? `, plus ${usd(r.supplementAfterTest / 12)}/mo of supplement until 62` : ''}.`, rows, note: `${r.rule}.${n(v, 'ss') > 0 ? '' : ` Social Security at 62 estimated at ${usd(ss)}/mo from your high-3; type your SSA figure for a better supplement.`}` };
+      return { label: `${r.label}, from age ${fmtYM(r.startAge)}`, value: `${usd(r.net / 12)}/mo`, sub: `${usd(r.net)} a year${r.supplementAfterTest > 0 ? `, plus ${usd(r.supplementAfterTest / 12)}/mo of supplement ${r.supplementStarts > r.startAge ? `from age ${fmtYM(r.supplementStarts)} (your MRA) ` : ''}until 62` : ''}.`, rows, note: `${r.rule}.${n(v, 'ss') > 0 ? '' : ` Social Security at 62 estimated at ${usd(ss)}/mo from your high-3; type your SSA figure for a better supplement.`}` };
     },
   }),
   /* Minimum retirement age */

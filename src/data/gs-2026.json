@@ -381,20 +381,20 @@
    "prevPct": 32.36
   },
   {
-   "code": "AQ",
-   "name": "Albuquerque-Santa Fe-Las Vegas, NM",
-   "short": "Albany",
-   "slug": "albany",
-   "pct": 18.33,
-   "prevPct": 18.33
-  },
-  {
    "code": "AL",
    "name": "Albany-Schenectady, NY-MA",
-   "short": "Albuquerque",
-   "slug": "albuquerque",
+   "short": "Albany",
+   "slug": "albany",
    "pct": 20.77,
    "prevPct": 20.77
+  },
+  {
+   "code": "AQ",
+   "name": "Albuquerque-Santa Fe-Las Vegas, NM",
+   "short": "Albuquerque",
+   "slug": "albuquerque",
+   "pct": 18.33,
+   "prevPct": 18.33
   },
   {
    "code": "ATL",
@@ -445,12 +445,12 @@
    "prevPct": 19.45
   },
   {
-   "code": "CC",
-   "name": "Corpus Christi-Kingsville-Alice, TX",
+   "code": "CT",
+   "name": "Charlotte-Concord, NC-SC",
    "short": "Charlotte",
    "slug": "charlotte",
-   "pct": 17.63,
-   "prevPct": 17.63
+   "pct": 19.67,
+   "prevPct": 19.67
   },
   {
    "code": "CHI",
@@ -493,12 +493,12 @@
    "prevPct": 22.15
   },
   {
-   "code": "CT",
-   "name": "Charlotte-Concord, NC-SC",
+   "code": "CC",
+   "name": "Corpus Christi-Kingsville-Alice, TX",
    "short": "Corpus Christi",
    "slug": "corpus-christi",
-   "pct": 19.67,
-   "prevPct": 19.67
+   "pct": 17.63,
+   "prevPct": 17.63
   },
   {
    "code": "DFW",
@@ -757,12 +757,12 @@
    "prevPct": 29.76
   },
   {
-   "code": "SN",
-   "name": "Spokane-Spokane Valley-Coeur d'Alene, WA-ID",
+   "code": "SO",
+   "name": "San Antonio-New Braunfels-Pearsall, TX",
    "short": "San Antonio",
    "slug": "san-antonio",
-   "pct": 17.67,
-   "prevPct": 17.67
+   "pct": 18.78,
+   "prevPct": 18.78
   },
   {
    "code": "SD",
@@ -789,12 +789,12 @@
    "prevPct": 31.57
   },
   {
-   "code": "SO",
-   "name": "San Antonio-New Braunfels-Pearsall, TX",
+   "code": "SN",
+   "name": "Spokane-Spokane Valley-Coeur d'Alene, WA-ID",
    "short": "Spokane",
    "slug": "spokane",
-   "pct": 18.78,
-   "prevPct": 18.78
+   "pct": 17.67,
+   "prevPct": 17.67
   },
   {
    "code": "SL",

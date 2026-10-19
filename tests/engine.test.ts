@@ -5,7 +5,8 @@
  */
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { AREAS, pay, pay2025, localityRate, BASE, CAP, areaOf, special001M, countiesOfArea, pay2027 } from '../src/lib/engine/gs';
+import { AREAS, pay, pay2025, localityRate, BASE, CAP, areaOf, special001M, countiesOfArea, pay2027, area } from '../src/lib/engine/gs';
+import P from '../src/data/params-2026.json';
 import { stepsAhead, promote, yearsStep1To10 } from '../src/lib/engine/career';
 import { fers, mraMonths, supplement, fersCola, sickLeaveMonths, ss62Estimate, kindOf, high3, colaPath } from '../src/lib/engine/fers';
 import { agencyMatch, deferralLimit } from '../src/lib/engine/tsp';
@@ -88,6 +89,17 @@ describe('steps and promotions', () => {
     if (p.to.step > 1) expect(pay(12, p.to.step - 1, 'RUS').annual).toBeLessThan(p.twoStepTarget);
   });
   it('promotion never goes past step 10', () => expect(promote(14, 10, 15, 'RUS').to.step).toBeLessThanOrEqual(10));
+  it('two-step rule uses table 001M at GS-1 to GS-3 and never cuts pay', () => {
+    for (let g = 1; g <= 14; g++) for (let s = 1; s <= 10; s++) for (const c of ['RUS', 'DCB', 'SF']) {
+      const p = promote(g, s, g + 1, c);
+      expect(p.to.annual, `GS-${g}/${s} ${c}`).toBeGreaterThanOrEqual(p.from.annual);
+    }
+    expect(promote(1, 3, 2, 'RUS').twoStepTarget).toBe(pay(1, 5, 'RUS').annual);
+  });
+  it('GS-1 and GS-2 from step 9 or 10: two times the step 9 to 10 increase (531.214(d)(6))', () => {
+    const inc = BASE[1][9] - BASE[1][8];
+    expect(promote(2, 10, 3, 'NY').twoStepTarget).toBe(Math.max(localityRate(BASE[1][9] + 2 * inc, area('NY').pct), BASE[1][9] + 2 * inc + (P.pay.special001M.rates[1][9] - BASE[1][9])));
+  });
 });
 
 describe('FERS', () => {
@@ -175,6 +187,18 @@ describe('FERS', () => {
     expect(e.aime).toBe(8333);
     expect(e.at62).toBeLessThan(e.pia);
     expect(high3([90000, 95000, 100000, 99000])).toBeCloseTo((95000 + 100000 + 99000) / 3, 6);
+  });
+});
+
+describe('FERS edge cases from 5 U.S.C. 8415', () => {
+  it('special plan but deferred: 1 %, not 1.7 %', () => {
+    const r = fers({ birthYear: 1981, retireAgeMonths: 45 * 12, serviceMonths: 15 * 12, high3: 100000, plan: 'special', startAgeMonths: 62 * 12 });
+    expect(r.kind).toBe('deferred');
+    expect(r.multiplier).toBeCloseTo(0.01, 9);
+  });
+  it('deferred with 30 years started at the MRA: no reduction (8415(h)(2))', () => {
+    const r = fers({ birthYear: 1970, retireAgeMonths: 52 * 12, serviceMonths: 30 * 12, high3: 100000, startAgeMonths: 57 * 12 });
+    expect(r.ageReductionPct).toBe(0);
   });
 });
 

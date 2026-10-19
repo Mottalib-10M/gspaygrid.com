@@ -408,15 +408,15 @@
       }
     },
     "opm_survivor": {
-      "url": "https://www.opm.gov/retirement-center/fers-information/survivors/",
+      "url": "https://www.opm.gov/retirement-center/survivor-benefits/",
       "label": {
         "en": "OPM, FERS survivor benefits"
       }
     },
     "opm_cola": {
-      "url": "https://www.opm.gov/retirement-center/my-annuity-and-benefits/cola/",
+      "url": "https://www.opm.gov/retirement-center/my-annuity-and-benefits/annuity-payments/",
       "label": {
-        "en": "OPM, cost-of-living adjustments for annuitants"
+        "en": "OPM, annuity payments and cost-of-living adjustments"
       }
     },
     "ssa_bend": {
