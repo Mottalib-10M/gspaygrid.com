@@ -1,6 +1,6 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://us-federal-pay.example";
-export const SITE_NAMES: Record<string, string> = {"en": "GS Pay and Pension"};
+export const SITE_URL = "https://gspaygrid.com";
+export const SITE_NAMES: Record<string, string> = {"en": "GS Pay Grid"};
 export const LANG_TAGS: Record<string, string> = {"en": "en-US"};
 export const OG_LOCALES: Record<string, string> = {"en": "en_US"};
 export const LOCALE_TAG = 'en-US';
@@ -16,7 +16,7 @@ export const AUTHOR_DESC: Record<string, string> = {"en": "Radif Partners rebuil
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"en": ["General Schedule pay tables and locality pay", "Within-grade increases and the two-step promotion rule", "Special rate table 001M for GS-1 to GS-4", "FERS basic annuity and minimum retirement age", "FERS annuity supplement and the earnings test", "FERS survivor annuity and cost-of-living adjustments", "TSP agency automatic and matching contributions"]};
-export const CONTACT_EMAIL = "contact@us-federal-pay.example";
+export const CONTACT_EMAIL = "contact@gspaygrid.com";
 export const THEME_COLOR = '#24406B';
 export const LOGO_SYMBOL = 'GS';
 export const BING_VERIFY_CODE = '';

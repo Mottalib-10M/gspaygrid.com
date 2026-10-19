@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://us-federal-pay.example/sitemap-index.xml
+Sitemap: https://gspaygrid.com/sitemap-index.xml

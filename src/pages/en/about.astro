@@ -10,11 +10,11 @@ const lang = 'en';
 const path = route('about', lang);
 const P = K.P;
 const title = 'GS Pay and FERS Calculators 2026: Who Publishes This Site';
-const description = 'GS Pay and Pension is published by Radif Partners: 2026 GS pay tables rebuilt from OPM files and FERS calculators from title 5, with no e-mail and no adviser.';
+const description = 'GS Pay Grid is published by Radif Partners: 2026 GS pay tables rebuilt from OPM files and FERS calculators from title 5, with no e-mail and no adviser.';
 ---
 <PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path }])]} breadcrumbs={[{ label: 'About' }]}>
   <article class="prose prose-slate max-w-none prose-headings:font-serif">
-    <h1>About GS Pay and Pension</h1>
+    <h1>About GS Pay Grid</h1>
     <p>{AUTHOR_DESC.en}</p>
     <h2>Why this site exists</h2>
     <p>A federal employee who wants a simple answer, what will I earn at this grade in this county, and what will I get when I retire, usually ends up with two kinds of pages. Pay charts reprint the OPM tables as images or PDFs and leave you to find your locality area among {K.AREAS.length} names. Retirement calculators run by financial firms ask for a name and an e-mail, compute the basic annuity, and invite you to book a review for the rest. Some still print last year's figures, or a 0 % raise for {P.year} when the actual raise was {K.dec(K.RAISE, 1)} %.</p>
