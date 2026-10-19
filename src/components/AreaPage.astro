@@ -1,0 +1,53 @@
+---
+/** A locality area page: the calculator set on a county of the area, the folded answer, the body, the full
+ *  2026 table of the area and the counties it covers (both generated from the OPM files). */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Tool from './Tool.astro';
+import Body from './Body.astro';
+import { route, ROUTES } from '../i18n/routes';
+import { label } from '../i18n/nav';
+import { t } from '../i18n/ui';
+import { areaId } from '../lib/pages';
+import { cardOf } from '../lib/cards';
+import { helpers, SOURCES, table } from '../lib/helpers';
+import { areaBySlug, countiesOfArea, table as payTable, STATE_NAMES, CAP } from '../lib/engine/gs';
+import { usd } from '../lib/tool-specs';
+import { articleSchema, faqSchema, breadcrumbSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+import { AUTHOR_NAME } from '../data/site-config';
+import type { AreaDef } from '../lib/page-types';
+interface Props { def: AreaDef }
+const { def } = Astro.props;
+const lang = 'en';
+const ui = t(lang);
+const a = areaBySlug(def.slug)!;
+const id = areaId(def.slug);
+const path = route(id, lang);
+const h1 = `${a.short} locality pay 2026: GS pay table`;
+const jsonLd = [webApplicationSchema({ name: h1, description: def.description, path, lang }), articleSchema({ title: h1, description: def.description, path, lang }), webPageSchema({ name: h1, description: def.description, path, lang }), breadcrumbSchema([{ name: ui.breadcrumbHome, path: route('home', lang) }, { name: label('locality-pay'), path: route('locality-pay', lang) }, { name: a.short, path }])];
+if (def.faqs.length) jsonLd.push(faqSchema(def.faqs, lang));
+const related = def.related.filter((x) => ROUTES.some((r) => r.id === x)).map((x) => ({ href: route(x, lang), name: label(x), description: cardOf(x) }));
+const sources = ['opm_gs_2026', 'opm_locality_defs', 'ecfr_531_603'].map((k) => ({ name: SOURCES[k].label, url: SOURCES[k].url }));
+const counties = countiesOfArea(a.code);
+const where = def.where ?? (a.code === 'AK' ? ['AK', 'all'] : a.code === 'HI' ? ['HI', 'all'] : a.code === 'RUS' ? ['AR', 'other'] : [counties[0].st, counties[0].names[0]]);
+const t26 = payTable(a.code);
+const rows = t26.map((r, g) => [`GS-${g + 1}`, ...r.map((x) => usd(x))]);
+---
+<PageLayout title={def.title} description={def.description} lang={lang} jsonLd={jsonLd} faqs={def.faqs} related={related} sources={sources} breadcrumbs={[{ label: label('locality-pay'), href: route('locality-pay', lang) }, { label: a.short }]}>
+  <article>
+    <header class="mb-4">
+      <h1 class="font-serif text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{h1}</h1>
+      <p class="mt-2 text-base text-navy-700 sm:text-lg">{def.intro}</p>
+    </header>
+    <div data-outil data-chrome class="mb-4"><Tool kind="gs" arg={{ st: where[0], co: where[1] }} idPrefix={`a-${a.code}`} /></div>
+    <p class="mb-6 text-sm text-navy-600">{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('method', lang)} class="underline hover:text-navy-900">{label('method')}</a> · OPM table {a.code} and the 2026 locality definitions</p>
+    <Clamp text={def.resume} lang={lang} id={`clamp-${a.code}`} class="mb-8" />
+    <Body html={def.body(helpers())} path={path} />
+    <section class="mt-10" data-chrome>
+      <h2 class="font-serif text-2xl font-bold text-navy-900">2026 GS pay table for {a.short}</h2>
+      <Fragment set:html={table(['Grade', ...Array.from({ length: 10 }, (_, i) => `Step ${i + 1}`)], rows, `${a.name}: base table plus ${a.pct} %, capped at ${usd(CAP)}. GS-1 to GS-4 follow table 001M where it is higher.`, ['l', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'])} />
+      {counties.length > 0 && <h3 class="mt-8 font-serif text-xl font-bold text-navy-900">Counties and cities in this area</h3>}
+      {counties.map((c) => <p class="mt-2 text-sm text-navy-700"><strong>{STATE_NAMES[c.st] ?? c.st}:</strong> {c.names.join(', ')}.</p>)}
+    </section>
+  </article>
+</PageLayout>

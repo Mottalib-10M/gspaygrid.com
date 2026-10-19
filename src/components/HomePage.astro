@@ -1,0 +1,59 @@
+---
+/**
+ * Home, in its own order: the pay calculator by county, a ruled line of this year's four facts, the folded
+ * answer, the 58 areas ranked (table), grade shortcuts, the FERS estimate as a second calculator, the
+ * prose on why the county decides, topics by family, long text in accordions, FAQ. Text: src/content/home.ts.
+ */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Tool from './Tool.astro';
+import Body from './Body.astro';
+import { HOME } from '../content/home';
+import { route, ROUTES } from '../i18n/routes';
+import { GROUPS } from '../i18n/nav';
+import { helpers, SOURCES, table } from '../lib/helpers';
+import { GUIDES, AREA_PAGES, areaId } from '../lib/pages';
+import { KIT as K } from '../lib/kit';
+import { faqSchema, organizationSchema, websiteSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+const lang = 'en';
+const x = HOME;
+const path = route('home', lang);
+const h = helpers();
+const sources = x.sources.map((k) => ({ name: SOURCES[k].label, url: SOURCES[k].url }));
+const jsonLd = [websiteSchema(lang), organizationSchema(lang), webPageSchema({ name: x.h1, description: x.description, path, lang }), webApplicationSchema({ name: x.h1, description: x.description, path, lang }), faqSchema(x.faqs, lang)];
+const facts = x.facts(h);
+const withPage = new Set(AREA_PAGES.map((a) => a.slug));
+const ranked = [...K.AREAS].sort((a, b) => b.pct - a.pct).map((a, i) => [String(i + 1), withPage.has(a.slug) ? `<a href="${route(areaId(a.slug), lang)}">${a.short}</a>` : a.short, `${K.dec(a.pct, 2)} %`, K.usd(K.pay(7, 1, a.code).annual), K.usd(K.pay(12, 1, a.code).annual), K.usd(K.pay(15, 10, a.code).annual)]);
+---
+<PageLayout title={x.title} description={x.description} lang={lang} jsonLd={jsonLd} faqs={x.faqs} sources={sources}>
+  <header class="mb-4">
+    <h1 class="font-serif text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{x.h1}</h1>
+    <p class="mt-2 text-base text-navy-700 sm:text-lg">{x.intro}</p>
+    <p class="mt-1 text-sm text-navy-600">Rebuilt from the 2026 OPM tables and locality definitions · <a href={route('method', lang)} class="underline">How the figures are built</a> · <a href={route('about', lang)} class="underline">Who publishes this</a></p>
+  </header>
+  <div data-outil data-chrome><Tool kind="gs" idPrefix="home" /></div>
+  <dl data-chrome class="my-6 grid grid-cols-2 border-y border-navy-200 py-3 text-sm sm:grid-cols-4">
+    {facts.map((f) => <div class="px-2 py-1"><dt class="text-navy-600">{f.k}</dt><dd class="font-serif text-lg font-bold text-navy-900"><Fragment set:html={f.v} /></dd></div>)}
+  </dl>
+  <Clamp text={x.resume} lang={lang} id="clamp-home" class="my-8" />
+  <section class="prose prose-slate max-w-none prose-headings:font-serif"><Body html={x.why(h)} path={path} /></section>
+  <section class="mt-10" data-chrome>
+    <h2 class="font-serif text-2xl font-bold text-navy-900">The 58 locality areas, ranked</h2>
+    <Fragment set:html={table(['#', 'Area', 'Locality', 'GS-7 step 1', 'GS-12 step 1', 'GS-15 step 10'], ranked, `2026 annual rates. Areas with their own page are linked; the GS-15 column stops at the ${K.usd(K.CAP)} cap.`, ['l', 'l', 'r', 'r', 'r', 'r'])} />
+    <p class="mt-4 text-sm text-navy-700">Pay by grade: {Array.from({ length: 15 }, (_, i) => i + 1).filter((g) => ROUTES.some((r) => r.id === `gs-${g}`)).map((g, i) => <>{i > 0 && ' · '}<a href={route(`gs-${g}`, lang)} class="font-medium text-accent-700 underline-offset-2 hover:underline">GS-{g}</a></>)}</p>
+  </section>
+  <section class="mt-10" data-chrome>
+    {GROUPS.map((g) => (
+      <div class="mb-6">
+        <h2 class="font-serif text-xl font-bold text-navy-900">{g.label}</h2>
+        <ul class="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2 lg:grid-cols-3">
+          {GUIDES.filter((p) => p.group === g.id).map((p) => <li><a href={route(p.id, lang)} class="font-medium text-accent-700 underline-offset-2 hover:underline">{p.nav}</a><span class="block text-navy-600">{p.card}</span></li>)}
+        </ul>
+      </div>
+    ))}
+  </section>
+  <section class="mt-10">
+    <h2 class="font-serif text-2xl font-bold text-navy-900">Before you sign the SF-50 or the retirement application</h2>
+    {x.sections(h).map((s) => <details class="fold"><summary><h3 class="fold-h">{s.title}</h3></summary><div class="prose prose-slate max-w-none pb-4"><Body html={s.html} path={path} /></div></details>)}
+  </section>
+</PageLayout>

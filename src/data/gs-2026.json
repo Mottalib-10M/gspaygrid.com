@@ -1,0 +1,840 @@
+{
+ "year": 2026,
+ "source_url": "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2026/general-schedule/",
+ "raise": 1.0,
+ "cap": 197200,
+ "base": [
+  [
+   22584,
+   23341,
+   24092,
+   24840,
+   25589,
+   26028,
+   26771,
+   27519,
+   27550,
+   28248
+  ],
+  [
+   25393,
+   25997,
+   26839,
+   27550,
+   27858,
+   28677,
+   29496,
+   30315,
+   31134,
+   31953
+  ],
+  [
+   27708,
+   28632,
+   29556,
+   30480,
+   31404,
+   32328,
+   33252,
+   34176,
+   35100,
+   36024
+  ],
+  [
+   31103,
+   32140,
+   33177,
+   34214,
+   35251,
+   36288,
+   37325,
+   38362,
+   39399,
+   40436
+  ],
+  [
+   34799,
+   35959,
+   37119,
+   38279,
+   39439,
+   40599,
+   41759,
+   42919,
+   44079,
+   45239
+  ],
+  [
+   38791,
+   40084,
+   41377,
+   42670,
+   43963,
+   45256,
+   46549,
+   47842,
+   49135,
+   50428
+  ],
+  [
+   43106,
+   44543,
+   45980,
+   47417,
+   48854,
+   50291,
+   51728,
+   53165,
+   54602,
+   56039
+  ],
+  [
+   47738,
+   49329,
+   50920,
+   52511,
+   54102,
+   55693,
+   57284,
+   58875,
+   60466,
+   62057
+  ],
+  [
+   52727,
+   54485,
+   56243,
+   58001,
+   59759,
+   61517,
+   63275,
+   65033,
+   66791,
+   68549
+  ],
+  [
+   58064,
+   59999,
+   61934,
+   63869,
+   65804,
+   67739,
+   69674,
+   71609,
+   73544,
+   75479
+  ],
+  [
+   63795,
+   65922,
+   68049,
+   70176,
+   72303,
+   74430,
+   76557,
+   78684,
+   80811,
+   82938
+  ],
+  [
+   76463,
+   79012,
+   81561,
+   84110,
+   86659,
+   89208,
+   91757,
+   94306,
+   96855,
+   99404
+  ],
+  [
+   90925,
+   93956,
+   96987,
+   100018,
+   103049,
+   106080,
+   109111,
+   112142,
+   115173,
+   118204
+  ],
+  [
+   107446,
+   111028,
+   114610,
+   118192,
+   121774,
+   125356,
+   128938,
+   132520,
+   136102,
+   139684
+  ],
+  [
+   126384,
+   130597,
+   134810,
+   139023,
+   143236,
+   147449,
+   151662,
+   155875,
+   160088,
+   164301
+  ]
+ ],
+ "prev": {
+  "year": 2025,
+  "raise": 1.7,
+  "base": [
+   [
+    22360,
+    23110,
+    23853,
+    24594,
+    25336,
+    25770,
+    26506,
+    27247,
+    27277,
+    27970
+   ],
+   [
+    25142,
+    25740,
+    26573,
+    27277,
+    27583,
+    28394,
+    29205,
+    30016,
+    30827,
+    31638
+   ],
+   [
+    27434,
+    28348,
+    29262,
+    30176,
+    31090,
+    32004,
+    32918,
+    33832,
+    34746,
+    35660
+   ],
+   [
+    30795,
+    31822,
+    32849,
+    33876,
+    34903,
+    35930,
+    36957,
+    37984,
+    39011,
+    40038
+   ],
+   [
+    34454,
+    35602,
+    36750,
+    37898,
+    39046,
+    40194,
+    41342,
+    42490,
+    43638,
+    44786
+   ],
+   [
+    38407,
+    39687,
+    40967,
+    42247,
+    43527,
+    44807,
+    46087,
+    47367,
+    48647,
+    49927
+   ],
+   [
+    42679,
+    44102,
+    45525,
+    46948,
+    48371,
+    49794,
+    51217,
+    52640,
+    54063,
+    55486
+   ],
+   [
+    47265,
+    48841,
+    50417,
+    51993,
+    53569,
+    55145,
+    56721,
+    58297,
+    59873,
+    61449
+   ],
+   [
+    52205,
+    53945,
+    55685,
+    57425,
+    59165,
+    60905,
+    62645,
+    64385,
+    66125,
+    67865
+   ],
+   [
+    57489,
+    59405,
+    61321,
+    63237,
+    65153,
+    67069,
+    68985,
+    70901,
+    72817,
+    74733
+   ],
+   [
+    63163,
+    65268,
+    67373,
+    69478,
+    71583,
+    73688,
+    75793,
+    77898,
+    80003,
+    82108
+   ],
+   [
+    75706,
+    78230,
+    80754,
+    83278,
+    85802,
+    88326,
+    90850,
+    93374,
+    95898,
+    98422
+   ],
+   [
+    90025,
+    93026,
+    96027,
+    99028,
+    102029,
+    105030,
+    108031,
+    111032,
+    114033,
+    117034
+   ],
+   [
+    106382,
+    109928,
+    113474,
+    117020,
+    120566,
+    124112,
+    127658,
+    131204,
+    134750,
+    138296
+   ],
+   [
+    125133,
+    129304,
+    133475,
+    137646,
+    141817,
+    145988,
+    150159,
+    154330,
+    158501,
+    162672
+   ]
+  ]
+ },
+ "areas": [
+  {
+   "code": "AK",
+   "name": "State of Alaska",
+   "short": "Alaska",
+   "slug": "alaska",
+   "pct": 32.36,
+   "prevPct": 32.36
+  },
+  {
+   "code": "AQ",
+   "name": "Albuquerque-Santa Fe-Las Vegas, NM",
+   "short": "Albany",
+   "slug": "albany",
+   "pct": 18.33,
+   "prevPct": 18.33
+  },
+  {
+   "code": "AL",
+   "name": "Albany-Schenectady, NY-MA",
+   "short": "Albuquerque",
+   "slug": "albuquerque",
+   "pct": 20.77,
+   "prevPct": 20.77
+  },
+  {
+   "code": "ATL",
+   "name": "Atlanta--Athens-Clarke County--Sandy Springs, GA-AL",
+   "short": "Atlanta",
+   "slug": "atlanta",
+   "pct": 23.79,
+   "prevPct": 23.79
+  },
+  {
+   "code": "AU",
+   "name": "Austin-Round Rock-Georgetown, TX",
+   "short": "Austin",
+   "slug": "austin",
+   "pct": 20.35,
+   "prevPct": 20.35
+  },
+  {
+   "code": "BH",
+   "name": "Birmingham-Hoover-Talladega, AL",
+   "short": "Birmingham",
+   "slug": "birmingham",
+   "pct": 18.24,
+   "prevPct": 18.24
+  },
+  {
+   "code": "BOS",
+   "name": "Boston-Worcester-Providence, MA-RI-NH-CT-ME-VT",
+   "short": "Boston",
+   "slug": "boston",
+   "pct": 32.58,
+   "prevPct": 32.58
+  },
+  {
+   "code": "BU",
+   "name": "Buffalo-Cheektowaga-Olean, NY",
+   "short": "Buffalo",
+   "slug": "buffalo",
+   "pct": 22.41,
+   "prevPct": 22.41
+  },
+  {
+   "code": "BN",
+   "name": "Burlington-South Burlington-Barre, VT",
+   "short": "Burlington",
+   "slug": "burlington",
+   "pct": 19.45,
+   "prevPct": 19.45
+  },
+  {
+   "code": "CC",
+   "name": "Corpus Christi-Kingsville-Alice, TX",
+   "short": "Charlotte",
+   "slug": "charlotte",
+   "pct": 17.63,
+   "prevPct": 17.63
+  },
+  {
+   "code": "CHI",
+   "name": "Chicago-Naperville, IL-IN-WI",
+   "short": "Chicago",
+   "slug": "chicago",
+   "pct": 30.86,
+   "prevPct": 30.86
+  },
+  {
+   "code": "CIN",
+   "name": "Cincinnati-Wilmington-Maysville, OH-KY-IN",
+   "short": "Cincinnati",
+   "slug": "cincinnati",
+   "pct": 21.93,
+   "prevPct": 21.93
+  },
+  {
+   "code": "CLE",
+   "name": "Cleveland-Akron-Canton, OH-PA",
+   "short": "Cleveland",
+   "slug": "cleveland",
+   "pct": 22.23,
+   "prevPct": 22.23
+  },
+  {
+   "code": "CS",
+   "name": "Colorado Springs, CO",
+   "short": "Colorado Springs",
+   "slug": "colorado-springs",
+   "pct": 20.15,
+   "prevPct": 20.15
+  },
+  {
+   "code": "COL",
+   "name": "Columbus-Marion-Zanesville, OH",
+   "short": "Columbus",
+   "slug": "columbus",
+   "pct": 22.15,
+   "prevPct": 22.15
+  },
+  {
+   "code": "CT",
+   "name": "Charlotte-Concord, NC-SC",
+   "short": "Corpus Christi",
+   "slug": "corpus-christi",
+   "pct": 19.67,
+   "prevPct": 19.67
+  },
+  {
+   "code": "DFW",
+   "name": "Dallas-Fort Worth, TX-OK",
+   "short": "Dallas-Fort Worth",
+   "slug": "dallas-fort-worth",
+   "pct": 27.26,
+   "prevPct": 27.26
+  },
+  {
+   "code": "DV",
+   "name": "Davenport-Moline, IA-IL",
+   "short": "Davenport",
+   "slug": "davenport",
+   "pct": 18.93,
+   "prevPct": 18.93
+  },
+  {
+   "code": "DAY",
+   "name": "Dayton-Springfield-Kettering, OH",
+   "short": "Dayton",
+   "slug": "dayton",
+   "pct": 21.42,
+   "prevPct": 21.42
+  },
+  {
+   "code": "DEN",
+   "name": "Denver-Aurora, CO",
+   "short": "Denver",
+   "slug": "denver",
+   "pct": 30.52,
+   "prevPct": 30.52
+  },
+  {
+   "code": "DM",
+   "name": "Des Moines-Ames-West Des Moines, IA",
+   "short": "Des Moines",
+   "slug": "des-moines",
+   "pct": 18.01,
+   "prevPct": 18.01
+  },
+  {
+   "code": "DET",
+   "name": "Detroit-Warren-Ann Arbor, MI",
+   "short": "Detroit",
+   "slug": "detroit",
+   "pct": 29.12,
+   "prevPct": 29.12
+  },
+  {
+   "code": "FN",
+   "name": "Fresno-Madera-Hanford, CA",
+   "short": "Fresno",
+   "slug": "fresno",
+   "pct": 17.65,
+   "prevPct": 17.65
+  },
+  {
+   "code": "HB",
+   "name": "Harrisburg-Lebanon, PA",
+   "short": "Harrisburg",
+   "slug": "harrisburg",
+   "pct": 19.43,
+   "prevPct": 19.43
+  },
+  {
+   "code": "HAR",
+   "name": "Hartford-East Hartford, CT-MA",
+   "short": "Hartford",
+   "slug": "hartford",
+   "pct": 32.08,
+   "prevPct": 32.08
+  },
+  {
+   "code": "HI",
+   "name": "State of Hawaii",
+   "short": "Hawaii",
+   "slug": "hawaii",
+   "pct": 22.21,
+   "prevPct": 22.21
+  },
+  {
+   "code": "HOU",
+   "name": "Houston-The Woodlands, TX",
+   "short": "Houston",
+   "slug": "houston",
+   "pct": 35.0,
+   "prevPct": 35.0
+  },
+  {
+   "code": "HNT",
+   "name": "Huntsville-Decatur, AL-TN",
+   "short": "Huntsville",
+   "slug": "huntsville",
+   "pct": 21.91,
+   "prevPct": 21.91
+  },
+  {
+   "code": "IND",
+   "name": "Indianapolis-Carmel-Muncie, IN",
+   "short": "Indianapolis",
+   "slug": "indianapolis",
+   "pct": 18.15,
+   "prevPct": 18.15
+  },
+  {
+   "code": "KC",
+   "name": "Kansas City-Overland Park-Kansas City, MO-KS",
+   "short": "Kansas City",
+   "slug": "kansas-city",
+   "pct": 18.97,
+   "prevPct": 18.97
+  },
+  {
+   "code": "LR",
+   "name": "Laredo, TX",
+   "short": "Laredo",
+   "slug": "laredo",
+   "pct": 21.59,
+   "prevPct": 21.59
+  },
+  {
+   "code": "LV",
+   "name": "Las Vegas-Henderson, NV-AZ",
+   "short": "Las Vegas",
+   "slug": "las-vegas",
+   "pct": 19.57,
+   "prevPct": 19.57
+  },
+  {
+   "code": "LA",
+   "name": "Los Angeles-Long Beach, CA",
+   "short": "Los Angeles",
+   "slug": "los-angeles",
+   "pct": 36.47,
+   "prevPct": 36.47
+  },
+  {
+   "code": "MFL",
+   "name": "Miami-Port St. Lucie-Fort Lauderdale, FL",
+   "short": "Miami",
+   "slug": "miami",
+   "pct": 24.67,
+   "prevPct": 24.67
+  },
+  {
+   "code": "MIL",
+   "name": "Milwaukee-Racine-Waukesha, WI",
+   "short": "Milwaukee",
+   "slug": "milwaukee",
+   "pct": 22.42,
+   "prevPct": 22.42
+  },
+  {
+   "code": "MSP",
+   "name": "Minneapolis-St. Paul, MN-WI",
+   "short": "Minneapolis",
+   "slug": "minneapolis",
+   "pct": 27.62,
+   "prevPct": 27.62
+  },
+  {
+   "code": "NY",
+   "name": "New York-Newark, NY-NJ-CT-PA",
+   "short": "New York",
+   "slug": "new-york",
+   "pct": 37.95,
+   "prevPct": 37.95
+  },
+  {
+   "code": "OM",
+   "name": "Omaha-Council Bluffs-Fremont, NE-IA",
+   "short": "Omaha",
+   "slug": "omaha",
+   "pct": 18.23,
+   "prevPct": 18.23
+  },
+  {
+   "code": "PB",
+   "name": "Palm Bay-Melbourne-Titusville, FL",
+   "short": "Palm Bay",
+   "slug": "palm-bay",
+   "pct": 17.93,
+   "prevPct": 17.93
+  },
+  {
+   "code": "PHL",
+   "name": "Philadelphia-Reading-Camden, PA-NJ-DE-MD",
+   "short": "Philadelphia",
+   "slug": "philadelphia",
+   "pct": 28.99,
+   "prevPct": 28.99
+  },
+  {
+   "code": "PX",
+   "name": "Phoenix-Mesa, AZ",
+   "short": "Phoenix",
+   "slug": "phoenix",
+   "pct": 22.45,
+   "prevPct": 22.45
+  },
+  {
+   "code": "PIT",
+   "name": "Pittsburgh-New Castle-Weirton, PA-OH-WV",
+   "short": "Pittsburgh",
+   "slug": "pittsburgh",
+   "pct": 21.03,
+   "prevPct": 21.03
+  },
+  {
+   "code": "POR",
+   "name": "Portland-Vancouver-Salem, OR-WA",
+   "short": "Portland",
+   "slug": "portland",
+   "pct": 26.13,
+   "prevPct": 26.13
+  },
+  {
+   "code": "RA",
+   "name": "Raleigh-Durham-Cary, NC",
+   "short": "Raleigh",
+   "slug": "raleigh",
+   "pct": 22.24,
+   "prevPct": 22.24
+  },
+  {
+   "code": "RN",
+   "name": "Reno-Fernley, NV",
+   "short": "Reno",
+   "slug": "reno",
+   "pct": 17.52,
+   "prevPct": 17.52
+  },
+  {
+   "code": "RCH",
+   "name": "Richmond, VA",
+   "short": "Richmond",
+   "slug": "richmond",
+   "pct": 22.28,
+   "prevPct": 22.28
+  },
+  {
+   "code": "RT",
+   "name": "Rochester-Batavia-Seneca Falls, NY",
+   "short": "Rochester",
+   "slug": "rochester",
+   "pct": 17.88,
+   "prevPct": 17.88
+  },
+  {
+   "code": "SAC",
+   "name": "Sacramento-Roseville, CA-NV",
+   "short": "Sacramento",
+   "slug": "sacramento",
+   "pct": 29.76,
+   "prevPct": 29.76
+  },
+  {
+   "code": "SN",
+   "name": "Spokane-Spokane Valley-Coeur d'Alene, WA-ID",
+   "short": "San Antonio",
+   "slug": "san-antonio",
+   "pct": 17.67,
+   "prevPct": 17.67
+  },
+  {
+   "code": "SD",
+   "name": "San Diego-Chula Vista-Carlsbad, CA",
+   "short": "San Diego",
+   "slug": "san-diego",
+   "pct": 33.72,
+   "prevPct": 33.72
+  },
+  {
+   "code": "SF",
+   "name": "San Jose-San Francisco-Oakland, CA",
+   "short": "San Francisco",
+   "slug": "san-francisco",
+   "pct": 46.34,
+   "prevPct": 46.34
+  },
+  {
+   "code": "SEA",
+   "name": "Seattle-Tacoma, WA",
+   "short": "Seattle",
+   "slug": "seattle",
+   "pct": 31.57,
+   "prevPct": 31.57
+  },
+  {
+   "code": "SO",
+   "name": "San Antonio-New Braunfels-Pearsall, TX",
+   "short": "Spokane",
+   "slug": "spokane",
+   "pct": 18.78,
+   "prevPct": 18.78
+  },
+  {
+   "code": "SL",
+   "name": "St. Louis-St. Charles-Farmington, MO-IL",
+   "short": "St. Louis",
+   "slug": "st-louis",
+   "pct": 20.03,
+   "prevPct": 20.03
+  },
+  {
+   "code": "TU",
+   "name": "Tucson-Nogales, AZ",
+   "short": "Tucson",
+   "slug": "tucson",
+   "pct": 19.28,
+   "prevPct": 19.28
+  },
+  {
+   "code": "VB",
+   "name": "Virginia Beach-Norfolk, VA-NC",
+   "short": "Virginia Beach",
+   "slug": "virginia-beach",
+   "pct": 18.8,
+   "prevPct": 18.8
+  },
+  {
+   "code": "DCB",
+   "name": "Washington-Baltimore-Arlington, DC-MD-VA-WV-PA",
+   "short": "Washington DC",
+   "slug": "washington-dc",
+   "pct": 33.94,
+   "prevPct": 33.94
+  },
+  {
+   "code": "RUS",
+   "name": "Rest of U.S.",
+   "short": "Rest of U.S.",
+   "slug": "rest-of-us",
+   "pct": 17.06,
+   "prevPct": 17.06
+  }
+ ]
+}

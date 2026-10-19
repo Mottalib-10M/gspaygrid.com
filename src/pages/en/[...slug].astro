@@ -1,0 +1,16 @@
+---
+/** Every topic page (src/content/guides), grade page (grades) and locality page (areas). */
+import ContentPage from '../../components/ContentPage.astro';
+import GradePage from '../../components/GradePage.astro';
+import AreaPage from '../../components/AreaPage.astro';
+import { GUIDES, GRADE_PAGES, AREA_PAGES } from '../../lib/pages';
+export function getStaticPaths() {
+  return [
+    ...GUIDES.map((page) => ({ params: { slug: page.slug }, props: { kind: 'g', def: page } })),
+    ...GRADE_PAGES.map((def) => ({ params: { slug: `gs-${def.grade}` }, props: { kind: 'r', def } })),
+    ...AREA_PAGES.map((def) => ({ params: { slug: `locality/${def.slug}` }, props: { kind: 'a', def } })),
+  ];
+}
+const { kind, def } = Astro.props as { kind: 'g' | 'r' | 'a'; def: any };
+---
+{kind === 'g' ? <ContentPage page={def} /> : kind === 'r' ? <GradePage def={def} /> : <AreaPage def={def} />}

@@ -1,0 +1,536 @@
+{
+  "_readme": "Every legal parameter of the site lives here, never in a page (RECETTE §4). Each value was read on the official source cited in `sources`, on the date of retrieved_at. The GS tables themselves are in gs-2026.json (scripts/data/build-pay-tables.py) and the county definitions in counties-2026.json (scripts/data/build-locality-counties.py).",
+  "year": 2026,
+  "retrieved_at": "2026-10-19",
+  "valid_from": "2026-01-01",
+  "valid_to": "2026-12-31",
+  "pay": {
+    "raise2026": 1.0,
+    "localityFrozen": true,
+    "cap2026": 197200,
+    "cap2025": 195200,
+    "special001M": {
+      "note": "Nationwide special rate table 001M (GS-1 to GS-4, worksites in the United States), effective the first pay period on or after January 1, 2026. Steps 6 to 10 of GS-4 are blank: Rest of U.S. rates are higher there.",
+      "rates": [
+        [
+          35048,
+          35772,
+          36496,
+          37220,
+          37944,
+          38668,
+          39392,
+          40116,
+          40840,
+          41564
+        ],
+        [
+          35749,
+          36568,
+          37387,
+          38206,
+          39025,
+          39844,
+          40663,
+          41482,
+          42301,
+          43120
+        ],
+        [
+          36464,
+          37388,
+          38312,
+          39236,
+          40160,
+          41084,
+          42008,
+          42932,
+          43856,
+          44780
+        ],
+        [
+          37193,
+          38230,
+          39267,
+          40304,
+          41341,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ]
+    },
+    "y2027": {
+      "status": "proposal",
+      "scenarioDefault": 0,
+      "planLetter": "2026-08-26",
+      "planRaise": 0,
+      "planLocality": "unchanged from 2026",
+      "statutoryRaiseWithoutPlan": 3.1,
+      "statutoryAvgLocalityWithoutPlan": 20.6,
+      "lawEnforcementRaise": 3.8,
+      "houseBill": "H.R. 8495",
+      "houseReport": "H. Rept. 119-623",
+      "houseReportDate": "2026-04-24",
+      "tablesExpected": "late December 2026 or January 2027",
+      "officialRaise": null
+    },
+    "eo": {
+      "number": "14368",
+      "title": "Adjustments of Certain Rates of Pay",
+      "signed": "2025-12-18",
+      "published": "2025-12-23",
+      "effective": "2026-01-11",
+      "memo": "CPM 2025-18",
+      "fedRegNotice": "2026-02-03",
+      "alternativePlanLetter": "2025-08-28"
+    },
+    "execSchedule2026": {
+      "I": 253100,
+      "II": 228000,
+      "III": 209600,
+      "IV": 197200,
+      "V": 184900
+    },
+    "localityRange": [
+      17.06,
+      46.34
+    ]
+  },
+  "career": {
+    "wgiWeeks": [
+      52,
+      52,
+      52,
+      104,
+      104,
+      104,
+      156,
+      156,
+      156
+    ],
+    "timeInGradeRule": {
+      "published": "2026-10-19",
+      "effective": "2027-01-19"
+    }
+  },
+  "fers": {
+    "mra": [
+      [
+        1947,
+        55,
+        0
+      ],
+      [
+        1948,
+        55,
+        2
+      ],
+      [
+        1949,
+        55,
+        4
+      ],
+      [
+        1950,
+        55,
+        6
+      ],
+      [
+        1951,
+        55,
+        8
+      ],
+      [
+        1952,
+        55,
+        10
+      ],
+      [
+        1964,
+        56,
+        0
+      ],
+      [
+        1965,
+        56,
+        2
+      ],
+      [
+        1966,
+        56,
+        4
+      ],
+      [
+        1967,
+        56,
+        6
+      ],
+      [
+        1968,
+        56,
+        8
+      ],
+      [
+        1969,
+        56,
+        10
+      ],
+      [
+        9999,
+        57,
+        0
+      ]
+    ],
+    "regular": {
+      "base": 0.01,
+      "enhanced": 0.011,
+      "enhancedAge": 62,
+      "enhancedYears": 20
+    },
+    "special": {
+      "first20": 0.017
+    },
+    "mra10ReductionPerYear": 0.05,
+    "survivor": {
+      "fullCost": 0.1,
+      "fullBenefit": 0.5,
+      "partialCost": 0.05,
+      "partialBenefit": 0.25
+    },
+    "cola": {
+      "fullUpTo": 0.02,
+      "capBand": 0.03,
+      "minus": 0.01,
+      "y2026": {
+        "ss": 0.028,
+        "fers": 0.02
+      },
+      "y2027": {
+        "ss": 0.036,
+        "fers": 0.026,
+        "announced": "2026-10-14",
+        "opmLetter": null
+      }
+    },
+    "sickLeaveHoursPerYear": 2087,
+    "employeeRate": {
+      "fers": 0.008,
+      "rae": 0.031,
+      "frae": 0.044
+    }
+  },
+  "ssa": {
+    "earningsTest": {
+      "exempt2026": 24480,
+      "exempt2027": null,
+      "higher2026": 65160
+    },
+    "wageBase": 184500,
+    "bendPoints": [
+      1286,
+      7749
+    ],
+    "reductionAt62Fra67": 0.7,
+    "wageBase2027": 192300,
+    "bendPoints2027": [
+      1340,
+      8077
+    ],
+    "cola2027": 0.036
+  },
+  "tsp": {
+    "automatic": 0.01,
+    "deferral": 24500,
+    "catchUp50": 8000,
+    "catchUp60to63": 11250
+  },
+  "states": {
+    "AL": "Alabama",
+    "AK": "Alaska",
+    "AZ": "Arizona",
+    "AR": "Arkansas",
+    "CA": "California",
+    "CO": "Colorado",
+    "CT": "Connecticut",
+    "DE": "Delaware",
+    "DC": "District of Columbia",
+    "FL": "Florida",
+    "GA": "Georgia",
+    "HI": "Hawaii",
+    "ID": "Idaho",
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "IA": "Iowa",
+    "KS": "Kansas",
+    "KY": "Kentucky",
+    "LA": "Louisiana",
+    "ME": "Maine",
+    "MD": "Maryland",
+    "MA": "Massachusetts",
+    "MI": "Michigan",
+    "MN": "Minnesota",
+    "MS": "Mississippi",
+    "MO": "Missouri",
+    "MT": "Montana",
+    "NE": "Nebraska",
+    "NV": "Nevada",
+    "NH": "New Hampshire",
+    "NJ": "New Jersey",
+    "NM": "New Mexico",
+    "NY": "New York",
+    "NC": "North Carolina",
+    "ND": "North Dakota",
+    "OH": "Ohio",
+    "OK": "Oklahoma",
+    "OR": "Oregon",
+    "PA": "Pennsylvania",
+    "RI": "Rhode Island",
+    "SC": "South Carolina",
+    "SD": "South Dakota",
+    "TN": "Tennessee",
+    "TX": "Texas",
+    "UT": "Utah",
+    "VT": "Vermont",
+    "VA": "Virginia",
+    "WA": "Washington",
+    "WV": "West Virginia",
+    "WI": "Wisconsin",
+    "WY": "Wyoming",
+    "PR": "Puerto Rico",
+    "GU": "Guam",
+    "VI": "U.S. Virgin Islands"
+  },
+  "sources": {
+    "opm_gs_2026": {
+      "url": "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2026/general-schedule/",
+      "label": {
+        "en": "OPM, 2026 General Schedule locality pay tables (with XML data)"
+      }
+    },
+    "opm_locality_defs": {
+      "url": "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2026/locality-pay-area-definitions/",
+      "label": {
+        "en": "OPM, 2026 locality pay area definitions"
+      }
+    },
+    "opm_001m": {
+      "url": "https://www.opm.gov/special-rates/2026/Table001M01012026.aspx",
+      "label": {
+        "en": "OPM, special rate table 001M, GS-1 to GS-4, January 2026"
+      }
+    },
+    "opm_leo_2026": {
+      "url": "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/2026/law-enforcement-officer/",
+      "label": {
+        "en": "OPM, 2026 law enforcement officer pay tables"
+      }
+    },
+    "ecfr_531": {
+      "url": "https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-531",
+      "label": {
+        "en": "5 CFR part 531, pay under the General Schedule"
+      }
+    },
+    "ecfr_531_405": {
+      "url": "https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-531/subpart-D/section-531.405",
+      "label": {
+        "en": "5 CFR 531.405, waiting periods for within-grade increases"
+      }
+    },
+    "ecfr_531_214": {
+      "url": "https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-531/subpart-B/section-531.214",
+      "label": {
+        "en": "5 CFR 531.214, pay on promotion (two-step rule)"
+      }
+    },
+    "ecfr_531_603": {
+      "url": "https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-531/subpart-F/section-531.603",
+      "label": {
+        "en": "5 CFR 531.603, locality pay areas"
+      }
+    },
+    "usc_5304": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/5304",
+      "label": {
+        "en": "5 U.S.C. 5304, locality-based comparability payments"
+      }
+    },
+    "usc_8412": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8412",
+      "label": {
+        "en": "5 U.S.C. 8412, FERS immediate retirement and the MRA table"
+      }
+    },
+    "usc_8415": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8415",
+      "label": {
+        "en": "5 U.S.C. 8415, computation of the FERS basic annuity"
+      }
+    },
+    "usc_8421": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8421",
+      "label": {
+        "en": "5 U.S.C. 8421, the FERS annuity supplement"
+      }
+    },
+    "usc_8462": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8462",
+      "label": {
+        "en": "5 U.S.C. 8462, FERS cost-of-living adjustments"
+      }
+    },
+    "opm_fers_computation": {
+      "url": "https://www.opm.gov/retirement-center/fers-information/computation/",
+      "label": {
+        "en": "OPM, FERS annuity computation"
+      }
+    },
+    "opm_fers_eligibility": {
+      "url": "https://www.opm.gov/retirement-center/fers-information/eligibility/",
+      "label": {
+        "en": "OPM, FERS eligibility"
+      }
+    },
+    "opm_fers_types": {
+      "url": "https://www.opm.gov/retirement-center/fers-information/types-of-retirement/",
+      "label": {
+        "en": "OPM, types of FERS retirement and the supplement"
+      }
+    },
+    "opm_survivor": {
+      "url": "https://www.opm.gov/retirement-center/fers-information/survivors/",
+      "label": {
+        "en": "OPM, FERS survivor benefits"
+      }
+    },
+    "opm_cola": {
+      "url": "https://www.opm.gov/retirement-center/my-annuity-and-benefits/cola/",
+      "label": {
+        "en": "OPM, cost-of-living adjustments for annuitants"
+      }
+    },
+    "ssa_bend": {
+      "url": "https://web.archive.org/web/20261017153432/https://www.ssa.gov/oact/COLA/bendpoints.html",
+      "label": {
+        "en": "SSA, PIA formula bend points"
+      }
+    },
+    "ssa_cbb": {
+      "url": "https://web.archive.org/web/20261018031820/https://www.ssa.gov/oact/COLA/cbb.html",
+      "label": {
+        "en": "SSA, contribution and benefit base (2027: 192,300)"
+      }
+    },
+    "eo_14368": {
+      "url": "https://www.federalregister.gov/documents/2025/12/23/2025-23844/adjustments-of-certain-rates-of-pay",
+      "label": {
+        "en": "Executive Order 14368, Adjustments of Certain Rates of Pay (December 18, 2025)"
+      }
+    },
+    "cpm_2025_18": {
+      "url": "https://www.opm.gov/chcoc/latest-memos/january-2026-pay-adjustments.pdf",
+      "label": {
+        "en": "OPM, CPM 2025-18, January 2026 pay adjustments"
+      }
+    },
+    "fr_pay_2026": {
+      "url": "https://www.federalregister.gov/documents/2026/02/03/2026-02189/january-2026-pay-schedules",
+      "label": {
+        "en": "OPM, January 2026 pay schedules (Federal Register, February 3, 2026)"
+      }
+    },
+    "opm_ex_2026": {
+      "url": "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/salary-tables/26Tables/exec/html/EX.aspx",
+      "label": {
+        "en": "OPM, 2026 Executive Schedule rates"
+      }
+    },
+    "plan_2027": {
+      "url": "https://www.govinfo.gov/content/pkg/CDOC-119hdoc189/html/CDOC-119hdoc189.htm",
+      "label": {
+        "en": "President's alternative pay plan for 2027 (House Document 119-189, August 2026)"
+      }
+    },
+    "house_fsgg_2027": {
+      "url": "https://www.govinfo.gov/content/pkg/CRPT-119hrpt623/html/CRPT-119hrpt623.htm",
+      "label": {
+        "en": "House Report 119-623, FY 2027 Financial Services and General Government appropriations"
+      }
+    },
+    "usc_8421a": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8421a",
+      "label": {
+        "en": "5 U.S.C. 8421a, reduction of the supplement for earnings"
+      }
+    },
+    "usc_8414": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8414",
+      "label": {
+        "en": "5 U.S.C. 8414, early and deferred FERS retirement"
+      }
+    },
+    "usc_8419": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8419",
+      "label": {
+        "en": "5 U.S.C. 8419, survivor reduction of the annuity"
+      }
+    },
+    "usc_8422": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8422",
+      "label": {
+        "en": "5 U.S.C. 8422, FERS employee deductions"
+      }
+    },
+    "usc_8432": {
+      "url": "https://www.law.cornell.edu/uscode/text/5/8432",
+      "label": {
+        "en": "5 U.S.C. 8432, TSP agency contributions"
+      }
+    },
+    "opm_bal_26_101": {
+      "url": "https://www.opm.gov/retirement-center/publications-forms/benefits-administration-letters/2026/26-101.pdf",
+      "label": {
+        "en": "OPM, Benefits Administration Letter 26-101, 2026 COLA"
+      }
+    },
+    "opm_handbook_50": {
+      "url": "https://www.opm.gov/retirement-center/publications-forms/csrsfers-handbook/c050.pdf",
+      "label": {
+        "en": "OPM, CSRS/FERS Handbook chapter 50, computation (sick leave chart)"
+      }
+    },
+    "fr_ssa_2026": {
+      "url": "https://www.federalregister.gov/documents/2025/11/03/2025-19763/cost-of-living-increase-and-other-determinations-for-2026",
+      "label": {
+        "en": "SSA, cost-of-living increase and other determinations for 2026 (Federal Register)"
+      }
+    },
+    "ssa_cola_2027": {
+      "url": "https://web.archive.org/web/20261015144246/https://www.ssa.gov/news/en/press/releases/2026-10-14.html",
+      "label": {
+        "en": "SSA, 3.6 percent benefit increase for 2027 (press release, October 14, 2026)"
+      }
+    },
+    "irs_limits_2026": {
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      "label": {
+        "en": "IRS, IR-2025-111, 2026 limits (TSP included)"
+      }
+    },
+    "ecfr_404_410": {
+      "url": "https://www.ecfr.gov/current/title-20/chapter-III/part-404/subpart-D/section-404.410",
+      "label": {
+        "en": "20 CFR 404.410, reduction of benefits claimed before full retirement age"
+      }
+    },
+    "ecfr_531_605": {
+      "url": "https://www.ecfr.gov/current/title-5/chapter-I/subchapter-B/part-531/subpart-F/section-531.605",
+      "label": {
+        "en": "5 CFR 531.605, official worksite for locality pay"
+      }
+    }
+  }
+}

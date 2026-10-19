@@ -1,0 +1,50 @@
+---
+/** A grade page: the GS pay calculator set on that grade, the folded answer, the grade across the largest
+ *  areas (generated), the body, FAQ, sources. */
+import PageLayout from '../layouts/PageLayout.astro';
+import Clamp from './Clamp.astro';
+import Tool from './Tool.astro';
+import Body from './Body.astro';
+import { route, ROUTES } from '../i18n/routes';
+import { label } from '../i18n/nav';
+import { t } from '../i18n/ui';
+import { gradeId } from '../lib/pages';
+import { cardOf } from '../lib/cards';
+import { helpers, SOURCES, table } from '../lib/helpers';
+import { pay, AREAS, CAP } from '../lib/engine/gs';
+import { usd } from '../lib/tool-specs';
+import { articleSchema, faqSchema, breadcrumbSchema, webPageSchema, webApplicationSchema } from '../lib/seo';
+import { AUTHOR_NAME } from '../data/site-config';
+import type { GradeDef } from '../lib/page-types';
+interface Props { def: GradeDef }
+const { def } = Astro.props;
+const lang = 'en';
+const ui = t(lang);
+const g = def.grade;
+const id = gradeId(g);
+const path = route(id, lang);
+const h1 = `GS-${g} pay scale 2026 by step and locality`;
+const jsonLd = [webApplicationSchema({ name: h1, description: def.description, path, lang }), articleSchema({ title: h1, description: def.description, path, lang }), webPageSchema({ name: h1, description: def.description, path, lang }), breadcrumbSchema([{ name: ui.breadcrumbHome, path: route('home', lang) }, { name: label('gs-pay-scale-2026'), path: route('gs-pay-scale-2026', lang) }, { name: `GS-${g}`, path }])];
+if (def.faqs.length) jsonLd.push(faqSchema(def.faqs, lang));
+const related = def.related.filter((x) => ROUTES.some((r) => r.id === x)).map((x) => ({ href: route(x, lang), name: label(x), description: cardOf(x) }));
+const sources = ['opm_gs_2026', 'opm_locality_defs', 'ecfr_531'].map((k) => ({ name: SOURCES[k].label, url: SOURCES[k].url }));
+const sorted = [...AREAS].sort((a, b) => b.pct - a.pct);
+const rows = sorted.map((a) => [a.short, usd(pay(g, 1, a.code).annual), usd(pay(g, 5, a.code).annual), usd(pay(g, 10, a.code).annual)]);
+const capNote = sorted.some((a) => pay(g, 10, a.code).capped) ? ` Rates shown at ${usd(CAP)} are held at the pay cap.` : '';
+---
+<PageLayout title={def.title} description={def.description} lang={lang} jsonLd={jsonLd} faqs={def.faqs} related={related} sources={sources} breadcrumbs={[{ label: label('gs-pay-scale-2026'), href: route('gs-pay-scale-2026', lang) }, { label: `GS-${g}` }]}>
+  <article>
+    <header class="mb-4">
+      <h1 class="font-serif text-[1.75rem] font-bold text-navy-900 max-sm:leading-tight sm:text-3xl md:text-4xl">{h1}</h1>
+      <p class="mt-2 text-base text-navy-700 sm:text-lg">{def.intro}</p>
+    </header>
+    <div data-outil data-chrome class="mb-4"><Tool kind="gs" arg={{ g: String(g) }} idPrefix={`g${g}`} /></div>
+    <p class="mb-6 text-sm text-navy-600">{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('method', lang)} class="underline hover:text-navy-900">{label('method')}</a> · 2026 OPM tables, rebuilt cell by cell</p>
+    <Clamp text={def.resume} lang={lang} id={`clamp-gs-${g}`} class="mb-8" />
+    <Body html={def.body(helpers())} path={path} />
+    <section class="mt-10" data-chrome>
+      <h2 class="font-serif text-2xl font-bold text-navy-900">GS-{g} in all 58 locality areas</h2>
+      <Fragment set:html={table(['Locality area', 'Step 1', 'Step 5', 'Step 10'], rows, `2026 annual rates for GS-${g}, highest locality first.${capNote}`, ['l', 'r', 'r', 'r'])} />
+    </section>
+  </article>
+</PageLayout>
