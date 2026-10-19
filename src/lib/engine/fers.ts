@@ -34,7 +34,7 @@ export interface FersIn {
 export interface FersOut {
   kind: Kind; label: string; mra: number; eligible: boolean; startAge: number;
   serviceCounted: number; multiplier: number; gross: number; reduction: number; ageReductionPct: number;
-  survivorCut: number; net: number; survivorAnnuity: number; supplement: number; supplementAfterTest: number; supplementStarts: number; supplementEnds: number;
+  survivorCut: number; net: number; monthly: number; survivorAnnuity: number; supplement: number; supplementAfterTest: number; supplementStarts: number; supplementEnds: number;
   rule: string;
 }
 /** Which retirement a separation at this age with this service gives (5 U.S.C. 8412, 8414). */
@@ -109,6 +109,9 @@ export function fers(i: FersIn): FersOut {
   // Base of the survivor annuity: the annuity after any age reduction, before the survivor cost (CSRS/FERS Handbook ch. 50).
   const survivorAnnuity = survivor === 'full' ? afterAge * F.survivor.fullBenefit : survivor === 'partial' ? afterAge * F.survivor.partialBenefit : 0;
   const net = afterAge - survivorCut;
+  // OPM pays a monthly rate: the annual annuity divided by 12, rounded down to the next lower dollar
+  // (5 U.S.C. 8345(a) monthly installments; CSRS/FERS Handbook ch. 50, computation).
+  const monthly = Math.floor(net / 12 + 1e-9);
   const supEligible = (kind === 'immediate' || kind === 'earlyout') && startAge < 62 * 12 && !(i.retireAgeMonths >= 62 * 12);
   // 8421a: earnings before the MRA do not count for retirees under the special provisions.
   const exemptNow = plan === 'special' && rule.startsWith('Special provisions') && startAge < mra;
@@ -116,7 +119,7 @@ export function fers(i: FersIn): FersOut {
   const label = kind === 'immediate' ? 'Immediate unreduced annuity' : kind === 'mra10' ? (agePct > 0 ? 'MRA+10 annuity, reduced' : 'MRA+10 annuity, postponed to avoid the reduction') : kind === 'earlyout' ? 'Early retirement annuity' : kind === 'deferred' ? 'Deferred annuity' : 'No annuity';
   return {
     kind, label, mra, eligible: kind !== 'none', startAge, serviceCounted: counted, multiplier: m.rate, gross, reduction, ageReductionPct: agePct,
-    survivorCut, net: kind === 'none' ? 0 : net, survivorAnnuity, supplement: sup?.yearly ?? 0, supplementAfterTest: sup?.after ?? 0, supplementStarts: kind === 'earlyout' ? Math.max(startAge, mra) : startAge, supplementEnds: 62 * 12, rule: `${rule} · ${m.text}`,
+    survivorCut, net: kind === 'none' ? 0 : net, monthly: kind === 'none' ? 0 : monthly, survivorAnnuity, supplement: sup?.yearly ?? 0, supplementAfterTest: sup?.after ?? 0, supplementStarts: kind === 'earlyout' ? Math.max(startAge, mra) : startAge, supplementEnds: 62 * 12, rule: `${rule} · ${m.text}`,
   };
 }
 

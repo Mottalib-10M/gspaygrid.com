@@ -24,7 +24,7 @@ const d62 = K.fers({ birthYear: 1981, retireAgeMonths: 45 * 12, serviceMonths: 1
 const e = K.fers({ birthYear: 1976, retireAgeMonths: 50 * 12, serviceMonths: 300, high3: 120000, plan: 'special', ss62: 2100 });
 // F: early out at 52 with 25 years
 const f = K.fers({ birthYear: 1974, retireAgeMonths: 52 * 12, serviceMonths: 300, high3: 100000, earlyOut: true, ss62: 1800 });
-const mo = (x: number) => `${K.usd(x / 12)}/mo`;
+const mo = (x: number) => `${K.usd(Math.floor(x / 12))}/mo`;
 
 export default defineGuide({
   id: 'fers-retirement-calculator', group: 'fers', order: 1, slug: 'fers-retirement-calculator',

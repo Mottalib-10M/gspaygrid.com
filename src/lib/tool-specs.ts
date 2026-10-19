@@ -170,9 +170,9 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
         ...(r.survivorCut > 0 ? [['Survivor benefit cost', `-${usd(r.survivorCut)}`, r.survivorCut] as [string, string, number]] : []),
         ...(r.supplement > 0 ? [[`FERS supplement until 62${r.supplementAfterTest < r.supplement ? ' (after the earnings test)' : ''}`, `${usd(r.supplementAfterTest / 12)}/mo`, r.supplementAfterTest] as [string, string, number]] : []),
         ['Your MRA', fmtYM(r.mra)],
-        ...(r.survivorAnnuity > 0 ? [['Survivor would receive', `${usd(r.survivorAnnuity / 12)}/mo`] as [string, string]] : []),
+        ...(r.survivorAnnuity > 0 ? [['Survivor would receive', `${usd(Math.floor(r.survivorAnnuity / 12))}/mo`] as [string, string]] : []),
       ];
-      return { label: `${r.label}, from age ${fmtYM(r.startAge)}`, value: `${usd(r.net / 12)}/mo`, sub: `${usd(r.net)} a year${r.supplementAfterTest > 0 ? `, plus ${usd(r.supplementAfterTest / 12)}/mo of supplement ${r.supplementStarts > r.startAge ? `from age ${fmtYM(r.supplementStarts)} (your MRA) ` : ''}until 62` : ''}.`, rows, note: `${r.rule}.${n(v, 'ss') > 0 ? '' : ` Social Security at 62 estimated at ${usd(ss)}/mo from your high-3; type your SSA figure for a better supplement.`}` };
+      return { label: `${r.label}, from age ${fmtYM(r.startAge)}`, value: `${usd(Math.floor(r.net / 12))}/mo`, sub: `${usd(r.net)} a year${r.supplementAfterTest > 0 ? `, plus ${usd(r.supplementAfterTest / 12)}/mo of supplement ${r.supplementStarts > r.startAge ? `from age ${fmtYM(r.supplementStarts)} (your MRA) ` : ''}until 62` : ''}.`, rows, note: `${r.rule}.${n(v, 'ss') > 0 ? '' : ` Social Security at 62 estimated at ${usd(ss)}/mo from your high-3; type your SSA figure for a better supplement.`}` };
     },
   }),
   /* Minimum retirement age */
@@ -192,8 +192,8 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
       const now = fers({ birthYear: by, retireAgeMonths: m, serviceMonths: svc, high3: n(v, 'h3'), startAgeMonths: start });
       const at60 = fers({ birthYear: by, retireAgeMonths: m, serviceMonths: svc, high3: n(v, 'h3'), startAgeMonths: 60 * 12 });
       const at62 = fers({ birthYear: by, retireAgeMonths: m, serviceMonths: svc, high3: n(v, 'h3'), startAgeMonths: 62 * 12 });
-      return { label: `MRA+10, annuity from ${fmtYM(start)}`, value: `${usd(now.net / 12)}/mo`, sub: now.ageReductionPct > 0 ? `Reduced ${pct(now.ageReductionPct, 1)} for starting before 62.` : 'No reduction at this starting age.',
-        rows: [['Unreduced annuity', `${usd(now.gross / 12)}/mo`, now.gross], [`Starting at ${fmtYM(start)}`, `${usd(now.net / 12)}/mo`, now.net], ['Postponed to 60', `${usd(at60.net / 12)}/mo`, at60.net], ['Postponed to 62', `${usd(at62.net / 12)}/mo`, at62.net]], note: kindOf(m, svc, m).kind === 'immediate' ? 'With 30 years at your MRA you qualify for an unreduced annuity: MRA+10 does not apply.' : undefined };
+      return { label: `MRA+10, annuity from ${fmtYM(start)}`, value: `${usd(Math.floor(now.net / 12))}/mo`, sub: now.ageReductionPct > 0 ? `Reduced ${pct(now.ageReductionPct, 1)} for starting before 62.` : 'No reduction at this starting age.',
+        rows: [['Unreduced annuity', `${usd(Math.floor(now.gross / 12))}/mo`, now.gross], [`Starting at ${fmtYM(start)}`, `${usd(Math.floor(now.net / 12))}/mo`, now.net], ['Postponed to 60', `${usd(Math.floor(at60.net / 12))}/mo`, at60.net], ['Postponed to 62', `${usd(Math.floor(at62.net / 12))}/mo`, at62.net]], note: kindOf(m, svc, m).kind === 'immediate' ? 'With 30 years at your MRA you qualify for an unreduced annuity: MRA+10 does not apply.' : undefined };
     },
   }),
   /* FERS supplement and earnings test */

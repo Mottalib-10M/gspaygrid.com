@@ -3,7 +3,7 @@ import { KIT as K } from '../../lib/kit';
 
 const F = K.P.fers;
 const p0 = (x: number) => `${K.dec(x * 100, 0)} %`;
-const mo = (x: number) => `${K.usd(x / 12)}/mo`;
+const mo = (x: number) => `${K.usd(Math.floor(x / 12))}/mo`;
 // Case A: born 1972, 18 years, high-3 $95,000 (fewer than 20 years: only 62 removes the cut)
 const run = (by: number, years: number, h3: number, start: number, extra = {}) => K.fers({ birthYear: by, retireAgeMonths: K.mra(by), serviceMonths: years * 12, high3: h3, startAgeMonths: start * 12, ...extra });
 const a57 = run(1972, 18, 95000, 57), a60 = run(1972, 18, 95000, 60), a62 = run(1972, 18, 95000, 62);
@@ -38,7 +38,7 @@ export default defineGuide({
 ${h.mini('mra10', { t: 'Move the start age: 57, 60, 62', p: ['sy', 'start'], d: { by: '1970', sy: 22, h3: 100000, start: 57 } })}
 <h2>How the reduction works</h2>
 <p>OPM computes the annuity in the usual way: high-3, times your service in years and months with unused sick leave added, times ${p0(F.regular.base)}. It then applies the age reduction of ${K.dec(perMonth * 100, 4)} % for each full month you are under 62 on the date the annuity begins, ${p0(F.mra10ReductionPerYear)} a year. A survivor election is applied after that, on the reduced amount. The reduction depends on the age at which the annuity starts, not the age at which you leave. That is what makes postponing possible: you can separate at the MRA and choose a later start date.</p>
-${h.table(['Annuity starts at', 'Reduction', 'Per year', 'Per month'], b.map(({ st, r }) => [String(st), p0(r.ageReductionPct), K.usd(r.net), K.usd(r.net / 12)]), `Born in 1970 (MRA ${K.ym(K.mra(1970))}), 22 years, ${K.usd(100000)} high-3, no survivor election. With 20 years, the cut is waived from 60.`, ['l', 'r', 'r', 'r'])}
+${h.table(['Annuity starts at', 'Reduction', 'Per year', 'Per month'], b.map(({ st, r }) => [String(st), p0(r.ageReductionPct), K.usd(r.net), K.usd(Math.floor(r.net / 12))]), `Born in 1970 (MRA ${K.ym(K.mra(1970))}), 22 years, ${K.usd(100000)} high-3, no survivor election. With 20 years, the cut is waived from 60.`, ['l', 'r', 'r', 'r'])}
 <h2>Postponing to 60 or 62</h2>
 <p>With 20 years of service or more, an annuity that starts at 60 or later has no reduction. With 10 to 19 years, only 62 removes it. In the table above, the employee with 22 years who waits three years gains ${K.usd(b60.net - b57.net)} a year for life. An employee born in 1972 with 18 years does not get that shortcut: starting at 60 still costs ${p0(a60.ageReductionPct)}, ${mo(a60.net)} instead of ${mo(a62.net)} at 62. Postponing does not change the ${p0(F.regular.base)} multiplier: the ${K.dec(F.regular.enhanced * 100, 1)} % rate depends on your age at separation, and an MRA+10 retiree separates before 62.</p>
 <h2>A break-even for waiting</h2>

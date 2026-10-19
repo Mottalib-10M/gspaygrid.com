@@ -407,6 +407,12 @@
         "en": "OPM, types of FERS retirement and the supplement"
       }
     },
+    "opm_qual_gs": {
+      "url": "https://www.opm.gov/policy-data-oversight/classification-qualifications/general-schedule-qualification-standards/",
+      "label": {
+        "en": "OPM, General Schedule qualification standards (group coverage standards)"
+      }
+    },
     "opm_survivor": {
       "url": "https://www.opm.gov/retirement-center/survivor-benefits/",
       "label": {

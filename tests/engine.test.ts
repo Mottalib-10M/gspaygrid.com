@@ -120,6 +120,15 @@ describe('FERS', () => {
     expect(kindOf(52 * 12, 22 * 12, 57 * 12, 'regular', true).kind).toBe('earlyout');
     expect(kindOf(50 * 12, 20 * 12, 57 * 12, 'special').kind).toBe('immediate');
   });
+  it('pays a monthly rate rounded down to the dollar, as OPM does (5 U.S.C. 8345, handbook ch. 50)', () => {
+    const a = fers({ birthYear: 1970, retireAgeMonths: 57 * 12, serviceMonths: 360, high3: 100003 });
+    expect(a.net).toBeCloseTo(30000.9, 6);
+    expect(a.monthly).toBe(2500);
+    const b = fers({ birthYear: 1964, retireAgeMonths: 62 * 12, serviceMonths: 192, high3: 91111, survivor: 'partial' });
+    expect(b.net / 12).toBeCloseTo(1154.07, 2);
+    expect(b.monthly).toBe(1154);
+    expect(fers({ birthYear: 1990, retireAgeMonths: 30 * 12, serviceMonths: 24, high3: 50000 }).monthly).toBe(0);
+  });
   it('OPM-style example: high-3 100,000, 30 years at 57: 30,000 a year', () => {
     const r = fers({ birthYear: 1970, retireAgeMonths: 57 * 12, serviceMonths: 360, high3: 100000 });
     expect(r.gross).toBeCloseTo(30000, 6);
