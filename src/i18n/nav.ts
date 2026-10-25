@@ -24,7 +24,8 @@ export function navCategories(lang: Locale): NavCategory[] {
     ...GROUPS.map((g) => ({ label: g.label, links: inGroup(g.id, lang) })).filter((c) => c.links.length),
   ];
 }
-export const navDirect = (lang: Locale): NavLink[] => [link('method', lang)];
+// Methode : liee en bas de page, hors du menu du haut pour qu'il tienne sur une ligne.
+export const navDirect = (_lang: Locale): NavLink[] => [];
 export const gradeLinks = (lang: Locale): NavLink[] => GRADE_PAGES.map((g) => ({ href: route(gradeId(g.grade), lang), label: `GS-${g.grade}` }));
 export const areaLinks = (lang: Locale): NavLink[] => AREA_PAGES.map((a) => ({ href: route(areaId(a.slug), lang), label: areaBySlug(a.slug)!.short }));
 export const footerColumns = (lang: Locale): NavCategory[] => [
