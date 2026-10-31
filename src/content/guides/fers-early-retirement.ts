@@ -42,7 +42,7 @@ ${h.table(['Situation (born ' + BY + ')', 'Annuity per year', 'Supplement from t
   ['VERA at 52 with 25 years', K.usd(a52.gross), `${K.usd(a52.supplement / 12)}/mo`, '25 years, any age'],
   [`Staying to the MRA (${K.ym(mra)}) with 30 years`, K.usd(stay.gross), `${K.usd(stay.supplement / 12)}/mo`, 'MRA with 30'],
 ], `High-3 of ${K.usd(H3)}, no sick leave, no survivor election, ${K.usd(SS)} Social Security estimate at 62.`, ['l', 'r', 'r', 'l'])}
-${h.mini('fers', { t: 'Your early-out annuity', p: ['ra', 'sy', 'h3'], d: { eo: 'yes', by: String(BY), ra: 52, sy: 25, h3: H3, ss: SS, sv: 'none' } })}
+${h.mini('fers', { t: 'Your early-out annuity', p: ['ra', 'sy', 'h3'], d: { sick: 0, eo: 'yes', by: String(BY), ra: 52, sy: 25, h3: H3, ss: SS, sv: 'none' } })}
 <p>The calculator card shows the supplement amount you will receive; remember that payments of it begin at your MRA, not at separation. The basic annuity starts the month after you leave.</p>
 <h2>The supplement and the COLA wait</h2>
 <p>Two parts of the package arrive later. The ${h.a('fers-supplement', 'FERS supplement')} is paid to early-out retirees only from the MRA to 62. For the worker in the table who leaves at 52, that means five years with the annuity alone, then about ${K.dec(supYears, 0)} years with the supplement on top. The ${h.a('fers-cola', 'FERS COLA')} follows the age 62 rule of section 8462, which names section 8414 among the annuities that get no increase before 62. From 52 to 62, the ${K.usd(a52.gross)} stays flat in dollars.</p>

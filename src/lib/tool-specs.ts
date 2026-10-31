@@ -59,7 +59,7 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
       return {
         label: `GS-${g} step ${st}, ${a.short}, 2026`, value: usd(p.annual),
         sub: p.usesSpecial ? `Special rate table 001M applies: it is higher than the ${a.short} locality rate of ${usd(p.locality)}.` : p.capped ? `Capped at ${usd(CAP)}, the Executive Schedule level IV rate.` : `Base ${usd(p.base)} plus ${formatDecimal(a.pct, 2)} % locality pay.`,
-        rows: [['Base pay (GS table)', usd(p.base), p.base], [`Locality payment, ${a.short}`, usd(p.annual - p.base), p.annual - p.base], ['Hourly rate', usd2(p.hourly)], ['Biweekly paycheck (gross, 80 hours)', usd2(p.biweekly)], ['Same cell in 2025', `${usd(last)} (${sign(p.annual - last)})`], ...(st < 10 ? [[`Next step (${waitWeeks(st + 1)} weeks in step)`, sign(next)] as [string, string]] : [])],
+        rows: [['Base pay (GS table)', usd(p.base), p.base], [`Locality payment, ${a.short}`, usd(p.localityAmount), p.localityAmount], ...(p.usesSpecial ? [['Special rate 001M supplement', usd(p.annual - p.locality), p.annual - p.locality] as [string, string, number]] : []), ['Hourly rate', usd2(p.hourly)], ['Biweekly paycheck (gross, 80 hours)', usd2(p.biweekly)], [p.usesSpecial ? 'Same cell in 2025, locality rate (2025 table 001M not counted)' : 'Same cell in 2025', `${usd(last)} (${sign(p.annual - last)})`], ...(st < 10 ? [[`Next step (${waitWeeks(st + 1)} weeks in step)`, sign(next)] as [string, string]] : [])],
         note: code === RUS && s(v, 'st') !== 'AK' && s(v, 'st') !== 'HI' ? 'This county is outside every named locality area: Rest of U.S. rates apply.' : undefined,
       };
     },

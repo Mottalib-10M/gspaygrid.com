@@ -12,7 +12,7 @@ const prorated = (months: number) => Math.round((fe27 * months) / 12 * 1000) / 1
 
 export default defineGuide({
   id: 'fers-cola', group: 'fers', order: 9, slug: 'fers-cola',
-  nav: 'FERS COLA', card: `The diet COLA: ${K.pct(fe26, 1)} for 2026, ${K.pct(fe27, 1)} expected for 2027, none before 62 on a regular annuity.`,
+  nav: 'FERS COLA', card: `The diet COLA: ${K.pct(fe26, 1)} for 2026, ${K.pct(fe27, 1)} due for 2027, none before 62 on a regular annuity.`,
   title: 'FERS COLA 2026: Diet COLA Rules, Age 62 and the 2027 Rate',
   description: `FERS COLA 2026: ${K.pct(fe26, 1)} against ${K.pct(ss26, 1)} for Social Security, ${K.pct(fe27, 1)} due for 2027, no increase before 62 on a regular annuity. Formula, proration, calculator.`,
   h1: 'FERS COLA 2026: the diet COLA, the age 62 rule and the 2027 increase',
