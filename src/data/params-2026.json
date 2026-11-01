@@ -74,7 +74,15 @@
       "houseReport": "H. Rept. 119-623",
       "houseReportDate": "2026-04-24",
       "tablesExpected": "late December 2026 or January 2027",
-      "officialRaise": null
+      "officialRaise": null,
+      "checked": "2026-11-01",
+      "leoRaise": 3.8,
+      "leoProcess": "a separate OPM process, outside the alternative pay plan",
+      "military": { "e1e5": 7.0, "e6o3": 6.0, "o4up": 5.0, "otherUniformed": 3.6 },
+      "crLaw": "P.L. 119-103",
+      "crBill": "H.R. 6500",
+      "crSigned": "2026-09-02",
+      "crThrough": "2026-12-11"
     },
     "eo": {
       "number": "14368",
@@ -459,6 +467,12 @@
       "url": "https://www.opm.gov/policy-data-oversight/pay-leave/salaries-wages/salary-tables/26Tables/exec/html/EX.aspx",
       "label": {
         "en": "OPM, 2026 Executive Schedule rates"
+      }
+    },
+    "cr_2027": {
+      "url": "https://www.whitehouse.gov/briefings-statements/2026/09/congressional-bill-h-r-6500-signed-into-law/",
+      "label": {
+        "en": "White House, H.R. 6500 signed into law (Continuing Appropriations and Extensions Act, 2027), September 2, 2026"
       }
     },
     "plan_2027": {
