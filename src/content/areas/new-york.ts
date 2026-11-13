@@ -20,7 +20,7 @@ export default defineArea({
   where: ['NY', 'New York County'],
   title: 'New York Locality Pay 2026: GS Rates for NY, NJ, CT and PA',
   description: `New York locality pay 2026 is ${K.dec(a.pct, 2)} %: GS-9 step 1 earns ${K.usd(g(9))}, GS-12 ${K.usd(g(12))}. The ${n} counties and military bases of NY, NJ, CT and PA, plus the GS-15 cap.`,
-  intro: `Second only to ${top.short}, the New York-Newark area adds ${K.dec(a.pct, 2)} % to the base table. Pick your county to check that it belongs here.`,
+  intro: `Second only to ${top.short}, the New York-Newark area adds ${K.dec(a.pct, 2)} % locality pay to the base table. Pick your county to check that it belongs here.`,
   resume: `Federal employees whose official worksite is in the New York-Newark locality pay area receive ${K.dec(a.pct, 2)} % on top of every General Schedule base rate in ${K.P.year}. That percentage ranks ${rank === 2 ? 'second' : `number ${rank}`} of the ${K.AREAS.length} areas, behind ${top.short} only, and it did not move from 2025: the January 2026 increase of ${K.dec(K.RAISE, 1)} % went to the base table. In dollars, GS-5 step 1 pays ${K.usd(g(5))}, GS-7 ${K.usd(g(7))}, GS-9 ${K.usd(g(9))}, GS-11 ${K.usd(g(11))}, GS-12 ${K.usd(g(12))} and GS-13 ${K.usd(g(13))}. The area covers ${n} entries in four states: ${of('NY')} New York counties, ${of('NJ')} New Jersey entries (counties plus military installations listed by name), ${of('CT')} Connecticut counties and ${of('PA')} Pennsylvania counties. From GS-15 step ${firstCap} upward, ${capped} steps are held at the ${K.usd(K.CAP)} cap. Next to Philadelphia, which covers southern New Jersey, the same GS-12 step 1 pays ${K.usd(g(12) - g(12, 1, 'PHL'))} more in New York.`,
   body: (h) => `
 <h2>Four states, one rate</h2>

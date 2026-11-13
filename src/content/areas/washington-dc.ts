@@ -13,7 +13,7 @@ export default defineArea({
   where: ['VA', 'Arlington County'],
   title: 'Washington DC Locality Pay 2026: GS Pay Table and Counties',
   description: `Washington DC locality pay 2026 is ${K.dec(a.pct, 2)} %: GS-12 step 1 earns ${K.usd(K.pay(12, 1, a.code).annual)}, GS-13 ${K.usd(g13.annual)}. Full GS table, every DC, Maryland and Virginia county, the cap.`,
-  intro: `The largest federal workforce in the country is paid ${K.dec(a.pct, 2)} % above the base table. Choose your county to confirm your area.`,
+  intro: `In Washington DC, the largest federal workforce in the country gets a locality pay of ${K.dec(a.pct, 2)} % above the base table. Choose your county to confirm your area.`,
   resume: `The Washington-Baltimore-Arlington locality pay area adds ${K.dec(a.pct, 2)} % to every General Schedule base rate in ${K.P.year}, the same percentage as in 2025 because Executive Order 14368 froze all localities while raising the base table by ${K.dec(K.RAISE, 1)} %. A GS-7 step 1 earns ${K.usd(g7.annual)}, a GS-9 ${K.usd(g9.annual)}, a GS-11 ${K.usd(g11.annual)}, a GS-13 ${K.usd(g13.annual)} and a GS-14 ${K.usd(g14.annual)}. The area reaches well beyond the District: ${nCounties} counties and independent cities in ${states.length} jurisdictions, from Baltimore and Frederick in Maryland to Fredericksburg and Winchester in Virginia, plus counties of West Virginia and Pennsylvania. At the top, ${capped} of the ten GS-15 steps are held at the ${K.usd(K.CAP)} pay cap. Compared with Rest of U.S., the same grade and step pays ${K.pct((1 + a.pct / 100) / (1 + rus.pct / 100) - 1, 1)} more.`,
   body: (h) => `
 <h2>Which offices are in the Washington area</h2>

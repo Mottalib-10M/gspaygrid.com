@@ -12,7 +12,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-11 Pay Scale 2026: Salary by Step, Ph.D. Entry, GS-12',
   description: `GS-11 pay 2026: ${K.usd(rus1.annual)} at step 1 in Rest of U.S., ${K.usd(dc1.annual)} in Washington DC. Ph.D. entry, the overtime cap set above GS-10, and the promotion to GS-12.`,
-  intro: 'The last developmental rung before full performance for many careers, and an entry grade for Ph.D. holders. Set your county for your rate.',
+  intro: 'GS-11 is the last developmental rung before full performance for many careers, and an entry grade for Ph.D. holders. Set your county for your pay rate.',
   resume: `GS-11 is the grade where two-grade-interval careers stop moving two grades at a time: after GS-5, 7, 9 and 11, the next promotion is to GS-12 and then one grade at a time. It is also the usual entry grade for a Ph.D. or equivalent doctoral degree, or three full years of progressively higher graduate study, in the series whose OPM qualification standards accept education. In ${K.P.year} the base rate of step 1 is ${K.usd(rus1.base)}; with locality, step 1 pays ${K.usd(rus1.annual)} in Rest of U.S., ${K.usd(sea1.annual)} in Seattle and ${K.usd(dc1.annual)} in the Washington area, and step 10 reaches ${K.usd(rus10.annual)} in Rest of U.S. Hourly pay at step 1 is ${K.usd2(rus1.hourly)} in Rest of U.S., already above GS-10 step 1, so FLSA-exempt overtime is capped at ${K.usd2(rus1.overtime)} an hour instead of a full time and a half. Most GS-11 employees on a ladder to GS-12 are promoted after about a year.`,
   body: (h) => `
 <h2>Three ways into GS-11</h2>

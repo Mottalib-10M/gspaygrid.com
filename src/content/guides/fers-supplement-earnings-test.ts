@@ -18,7 +18,7 @@ export default defineGuide({
   title: 'FERS Supplement Earnings Test 2026: Limit, Timing, Cuts',
   description: `FERS supplement earnings test 2026: $1 withheld for every $2 of wages above ${K.usd(ex)}, applied from July of the next year. What counts, who is exempt, examples.`,
   h1: 'FERS supplement earnings test 2026: how a job after retirement cuts the supplement',
-  intro: 'Working after you retire does not touch your FERS annuity, but it can shrink or erase the supplement. Enter your monthly supplement and the wages you expect.',
+  intro: 'Working after you retire does not touch your FERS annuity, but under the earnings test it can shrink or erase the supplement. Enter your monthly supplement and the wages you expect.',
   resume: `Under 5 U.S.C. 8421a, the FERS supplement is reduced by half of your earnings above the Social Security exempt amount, which is ${K.usd(ex)} for ${P.year}. Only wages and net self-employment income count; the annuity, TSP withdrawals, interest and dividends do not. The reduction is based on the previous calendar year: the excess earned in ${P.year} is spread over the twelve months that begin in July ${P.year + 1}, never more than the supplement itself. With a ${K.usd(s0.monthly)} monthly supplement, ${K.usd(s0.yearly)} a year, wages of ${K.usd(40000)} cost ${K.usd(s40.cut)}, leaving ${K.usd(s40.after)}; at ${K.usd(s0.zeroAt)} of wages nothing is left. Earnings from the part of the year before you retired are not counted. Law enforcement officers, firefighters and air traffic controllers retired under the special provisions are exempt for earnings before their MRA. For 2027, our data does not yet hold the exempt amount: the page will use ${next}. The basic annuity is never reduced, whatever you earn.`,
   tool: 'earnings',
   toolArg: { sup: s0.monthly, earn: 40000 },
@@ -30,7 +30,7 @@ export default defineGuide({
     { q: 'What is the 2027 earnings limit for the FERS supplement?', a: `SSA sets the 2027 exempt amount in its annual determinations. Our data does not hold a confirmed 2027 figure yet, so this page and the calculator still use the ${P.year} amount of ${K.usd(ex)}. We will update both when the 2027 figure is confirmed. Because the test looks at the prior year, 2027 wages reduce supplements only from July 2028.` },
   ],
   body: (h) => `
-<h2>The rule in one sentence</h2>
+<h2>The supplement earnings test in one sentence</h2>
 <p>${h.src('usc_8421a', 'Section 8421a')} takes the earnings test that Social Security applies to people who claim benefits before full retirement age and applies it to the FERS supplement: for each year, half of your earnings above the exempt amount is withheld from the supplement. The basic annuity is never touched. For ${P.year} the exempt amount is ${K.usd(ex)}, set by ${h.src('fr_ssa_2026', "SSA's 2026 determinations")}. The supplement itself, how it is computed and who receives it, is explained on the ${h.a('fers-supplement', 'FERS supplement page')}.</p>
 ${h.mini('earnings', { t: 'Test a salary against your supplement', p: ['sup', 'earn'], d: { sup: s0.monthly, earn: 40000 } })}
 <h2>What counts as earnings</h2>

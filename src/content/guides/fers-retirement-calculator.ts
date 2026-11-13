@@ -46,7 +46,7 @@ export default defineGuide({
     { q: 'Does this FERS calculator include the supplement earnings test?', a: `Yes. Type the wages you expect to earn after retiring in the folded fields. The supplement is cut $1 for every $2 above ${K.usd(ex)}, the ${P.year} exempt amount. In the main example, ${K.usd(40000)} of wages lowers a ${K.usd(a.supplement)} yearly supplement to ${K.usd(aWork.supplementAfterTest)}. The basic annuity itself is never reduced for earnings.` },
   ],
   body: (h) => `
-<h2>What this calculator does</h2>
+<h2>What this FERS retirement calculator does</h2>
 <p>The tool above reads five inputs that decide almost everything: the year you were born, the age at which you separate, your years of creditable service, your high-3 average salary and your survivor choice. From the first two it finds your minimum retirement age. From age and service it decides which retirement you qualify for under ${h.src('usc_8412', '5 U.S.C. 8412')} and ${h.src('usc_8414', '8414')}: an immediate unreduced annuity, MRA+10, an early-out annuity, or a deferred annuity that starts later. It then computes the basic annuity, applies the age reduction if one applies, takes off the survivor cost and adds the supplement when you are entitled to it. The folded fields handle the less common cases: extra months of age and service, unused sick leave, your Social Security estimate, wages after you retire, the age at which a postponed or deferred annuity begins, and a voluntary early retirement or discontinued service offer.</p>
 <h2>Who can retire, and on what terms</h2>
 ${h.table(['You leave at', 'With', 'Annuity', 'Supplement'], [

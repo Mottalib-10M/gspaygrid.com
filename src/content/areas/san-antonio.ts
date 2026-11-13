@@ -20,7 +20,7 @@ export default defineArea({
   where: ['TX', 'Bexar County'],
   title: 'San Antonio Locality Pay 2026: GS Salaries by Grade',
   description: `San Antonio locality pay 2026 is ${K.dec(a.pct, 2)} %: GS-9 step 1 pays ${K.usd(g(9))}, GS-12 ${K.usd(g(12))}. The ${names.length} Texas counties, step increases and how Austin and Houston compare.`,
-  intro: `Bexar County and ${names.length - 1} other Texas counties are paid ${K.dec(a.pct, 2)} % above the GS base table in ${K.P.year}.`,
+  intro: `Bexar County and ${names.length - 1} other Texas counties share the San Antonio locality pay: ${K.dec(a.pct, 2)} % above the GS base table in ${K.P.year}.`,
   resume: `San Antonio-New Braunfels-Pearsall is the locality pay area for federal worksites in Bexar County and ${names.length - 1} other Texas counties, including Comal, Guadalupe, Kendall and Medina. In ${K.P.year} it adds ${K.dec(a.pct, 2)} % to the General Schedule base table, the same percentage as in 2025, since Executive Order 14368 limited the January change to a ${K.dec(K.RAISE, 1)} % raise of the base rates. A GS-5 step 1 earns ${K.usd(g(5))}, a GS-7 ${K.usd(g(7))}, a GS-9 ${K.usd(g(9))}, a GS-11 ${K.usd(g(11))}, a GS-12 ${K.usd(g(12))} and a GS-13 ${K.usd(g(13))}. The area ranks ${ord(rank)} of ${K.AREAS.length}, and it is one of ${tx.length} named areas in Texas: ${au.short} pays ${K.dec(au.pct, 2)} % and ${hou.short} ${K.dec(hou.pct, 2)} %, both higher. GS-15 step 10 is ${K.usd(top)}, below the ${K.usd(K.CAP)} cap, so every step in this table pays more than the one before it.`,
   body: (h) => `
 <h2>Counties of the area</h2>

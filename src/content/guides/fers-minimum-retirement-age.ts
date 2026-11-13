@@ -21,7 +21,7 @@ export default defineGuide({
   title: 'FERS Minimum Retirement Age 2026: MRA Table by Birth Year',
   description: 'FERS minimum retirement age 2026: the MRA table by year of birth, from 55 to 57, what 30 years or 10 years give you at the MRA, and how to find your exact date.',
   h1: 'FERS minimum retirement age (MRA) 2026: the table by year of birth',
-  intro: 'Your MRA is set by your year of birth alone. Pick your year and your expected service to see the age and what it lets you do.',
+  intro: 'Your FERS minimum retirement age (MRA) is set by your year of birth alone. Pick your year and your expected service to see the age and what it lets you do.',
   resume: `The FERS minimum retirement age, or MRA, is fixed by 5 U.S.C. 8412(h) according to your year of birth. It is 55 for anyone born before 1948, rises by two months a year to reach 56 for those born from 1953 to 1964, then rises again by two months a year: ${K.ym(K.mra(1965))} for 1965, ${K.ym(mra66)} for 1966, up to ${K.ym(K.mra(1969))} for 1969, and ${K.ym(mra70)} for everyone born in 1970 or later. At the MRA with 30 years of service you can retire on an immediate unreduced annuity and receive the FERS supplement until 62. With 10 to 29 years you can leave under MRA+10, but the annuity is cut ${p0(F.mra10ReductionPerYear)} for each year under 62 unless you postpone it. For someone born in 1966 who leaves at the MRA with 25 years, that cut is ${K.dec(tenPct * 100, 1)} %. The MRA also matters if you left early: a deferred annuity with 10 years can start there. It is not your Social Security full retirement age.`,
   tool: 'mra',
   toolArg: { by: '1968', sy: 25 },
@@ -32,7 +32,7 @@ export default defineGuide({
     { q: 'Do I have to be at my MRA on the day I leave?', a: 'For MRA+10, yes: OPM says you must have reached your MRA on the day you separate from federal service. If you leave even a day before, you no longer qualify for an immediate MRA+10 annuity and your benefit becomes a deferred annuity. Check your exact birth date and the date your MRA falls before you pick a separation date with your benefits office.' },
   ],
   body: (h) => `
-<h2>The MRA table</h2>
+<h2>The FERS minimum retirement age table</h2>
 <p>The table is written into ${h.src('usc_8412', '5 U.S.C. 8412(h)')}. Since everyone born in 1970 or later has an MRA of ${K.ym(mra70)}, the table no longer changes for the people now starting their careers.</p>
 ${h.table(['Year of birth', 'Minimum retirement age'], ranges, 'FERS minimum retirement age by year of birth, 5 U.S.C. 8412(h).', ['l', 'r'])}
 <p>To find your exact date, add the MRA to your date of birth. Someone born on March 10, 1967 reaches an MRA of ${K.ym(K.mra(1967))} on September 10, 2023. Someone born in 1972 reaches ${K.ym(K.mra(1972))} on the 57th birthday, in 2029. The calculator above gives the year and month for any year from 1955.</p>

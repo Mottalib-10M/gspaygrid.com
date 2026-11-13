@@ -15,7 +15,7 @@ export default defineGuide({
   title: 'Federal Pay Raise 2026: 1 % for GS, Locality Pay Frozen',
   description: `Federal pay raise 2026: ${K.dec(K.RAISE, 1)} % on the GS base table from January 11, locality frozen at 2025 levels (EO ${eo.number}). Your exact gain per year and per paycheck.`,
   h1: 'Federal pay raise 2026: what the 1 % gave each grade, step and area',
-  intro: 'Pick your grade, step and area: the calculator compares the official 2025 and 2026 rates and gives the gain per paycheck.',
+  intro: 'Pick your grade, step and area: the calculator compares the official 2025 and 2026 rates and gives the pay raise per paycheck.',
   resume: `General Schedule employees received a ${K.dec(K.RAISE, 1)} % raise in ${P.year}. Executive Order ${eo.number}, signed on ${K.day(eo.signed)} and published on ${K.day(eo.published)}, raised the base table by ${K.dec(K.RAISE, 1)} % and kept every one of the ${K.AREAS.length} locality percentages at its 2025 level. The new rates took effect on the first day of the first pay period beginning on or after January 1, 2026, which for most agencies was ${K.day(eo.effective)}. Because locality pay is a percentage of the base rate, every locality rate also rose by about ${K.dec(K.RAISE, 1)} %: a GS-11 step 5 in Washington went from ${K.usd(a.was)} to ${K.usd(a.now)}, ${K.usd(a.gain)} more a year or about ${K.usd(a.gain / 26)} per biweekly paycheck. The order also allowed OPM to raise certain law enforcement personnel by up to ${K.dec(P.pay.leo2026.upToTotalRaise, 1)} % in total. Employees held at the ${K.usd(K.CAP)} cap gained only the rise of the cap.`,
   tool: 'raise2026',
   toolArg: { g: '11', s: '5', a: 'DCB' },
@@ -29,7 +29,7 @@ export default defineGuide({
   body: (h) => `
 <h2>The legal path to 1 %</h2>
 <p>The Federal Employees Pay Comparability Act sets a formula for each January: an across-the-board raise equal to the rise in the Employment Cost Index minus half a point, plus locality payments meant to close the gap with non-federal pay. The formula almost always produces large numbers, and every year the President uses the authority of 5 U.S.C. 5303(b) and 5304a to send Congress an alternative plan instead. For ${P.year}, the alternative pay plan letter of ${K.day(eo.alternativePlanLetter)} announced ${K.dec(K.RAISE, 1)} % with no locality increase. Congress did not pass a different figure, and Executive Order ${eo.number} put the plan into effect. OPM then sent agencies its pay memo, ${eo.memo}, and the tables followed; the formal notice of the January ${P.year} schedules appeared in the Federal Register on ${K.day(eo.fedRegNotice)}.</p>
-<h2>What it means for each cell</h2>
+<h2>What the federal pay raise means for each cell</h2>
 <p>Every base rate was multiplied by 1.01 and rounded to the dollar. Locality rates were then rebuilt from the new base rates with the 2025 percentages. The result is a raise of almost exactly ${K.dec(K.RAISE, 1)} % in every one of the ${K.num(gains.length)} cells of the ${K.AREAS.length} tables, with two exceptions. Cells already held at the cap in 2025 moved only to the new cap. And GS-1 to GS-4 cells paid from special table 001M followed that table, not the locality rule. The largest gain in dollars is ${K.usd(maxGain)} a year${zero ? `, and ${zero} cells did not change at all` : ''}.</p>
 ${h.table(['Grade and area', '2025', '2026', 'Gain per year', 'Per paycheck'], [
   ['GS-7 step 1, Rest of U.S.', K.usd(b.was), K.usd(b.now), K.usd(b.gain), K.usd2(b.gain / 26)],

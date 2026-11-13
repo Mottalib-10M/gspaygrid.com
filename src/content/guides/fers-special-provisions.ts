@@ -18,7 +18,7 @@ export default defineGuide({
   title: 'FERS Special Provisions 2026: LEO, Firefighter, ATC Annuity',
   description: `FERS special provisions 2026: LEOs, firefighters and air traffic controllers retire at 50 with 20 years or at any age with 25, at ${K.pct(F.special.first20, 1)} for the first 20 years.`,
   h1: 'FERS special provisions in 2026: law enforcement, firefighters and air traffic controllers',
-  intro: 'Covered positions retire earlier, with a richer formula and a supplement from the first month. Set the plan to LEO, firefighter, ATC in the calculator and enter your record.',
+  intro: 'Positions covered by the FERS special provisions retire earlier, with a richer formula and a supplement from the first month. Set the plan to LEO, firefighter, ATC in the calculator and enter your record.',
   resume: `The FERS special provisions let law enforcement officers, firefighters, air traffic controllers, Capitol and Supreme Court Police, nuclear materials couriers and customs and border protection officers retire at 50 with 20 years of covered service, or at any age with 25. The annuity is ${K.pct(F.special.first20, 1)} of the high-3 for each of the first 20 years and 1 % for each year after: with a ${K.usd(H3)} high-3, 20 years at 50 pays ${K.usd(a50.gross)} a year, and 30 years at 57 pays ${K.usd(a57.gross)}, against ${K.usd(reg57.gross)} for a regular employee with the same record. The FERS supplement is paid from the first month, ${K.usd(a50.supplement / 12)} a month in the 20-year case with a ${K.usd(SS)} Social Security estimate, and the earnings test does not apply until the MRA. COLAs are paid at any age. In exchange, covered employees pay half a point more of their salary, ${K.pct(F.employeeRate.frae + extra, 1)} for those hired since 2014, and most must leave at 57, or 56 for controllers.`,
   tool: 'fers',
   toolArg: { pl: 'special', by: String(BY), ra: 50, sy: 20, h3: H3, ss: SS, sv: 'none' },
@@ -30,7 +30,7 @@ export default defineGuide({
     { q: 'How much do LEOs and firefighters contribute to FERS?', a: `Half a percentage point more than other employees. Section 8422 sets the applicable percentage at 7.5 % instead of 7 % for those hired before 2013, 9.8 % instead of 9.3 % for FERS-RAE and 11.1 % instead of 10.6 % for FERS-FRAE, minus the Social Security tax. The deduction is ${K.pct(F.employeeRate.fers + extra, 1)}, ${K.pct(F.employeeRate.rae + extra, 1)} or ${K.pct(F.employeeRate.frae + extra, 1)} of basic pay.` },
   ],
   body: (h) => `
-<h2>Who is covered</h2>
+<h2>Who is covered by the special provisions</h2>
 <p>${h.src('usc_8412', 'Section 8412(d)(1)')} names law enforcement officers, members of the Capitol Police and the Supreme Court Police, firefighters, nuclear materials couriers and customs and border protection officers, or any combination of that service. Section 8412(e) covers air traffic controllers. Coverage depends on the position you hold, not on the agency you work for; your human resources office confirms whether your service is covered.</p>
 <p>An employee who becomes ill or is injured on duty in a covered position and moves, without a break of more than three days, to a supervisory or administrative position related to the former one can keep that later service treated as covered service, unless the employee elects otherwise. The rule is in section 8412(d)(2) and keeps the special retirement within reach after a career-ending injury.</p>
 <h2>Age and service</h2>

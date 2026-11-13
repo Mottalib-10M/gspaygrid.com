@@ -18,7 +18,7 @@ export default defineArea({
   slug: 'hawaii',
   title: 'Hawaii Locality Pay 2026: GS Salaries on Every Island',
   description: `Hawaii locality pay 2026 is ${K.dec(a.pct, 2)} % statewide: GS-11 step 1 pays ${K.usd(g11.annual)}, GS-12 ${K.usd(g12.annual)}. Hourly rates, overtime, the pay cap and how Hawaii compares to Alaska.`,
-  intro: `Oahu, Maui, the Big Island and Kauai share one table: ${K.dec(a.pct, 2)} % above the GS base rates in ${K.P.year}.`,
+  intro: `Oahu, Maui, the Big Island and Kauai share one locality pay table: ${K.dec(a.pct, 2)} % above the GS base rates in ${K.P.year}.`,
   resume: `The State of Hawaii is one of the ${K.AREAS.length} General Schedule locality pay areas, and it covers every island with a single percentage: ${K.dec(a.pct, 2)} % in ${K.P.year}, unchanged from 2025 because Executive Order 14368 froze all localities and raised the base table by ${K.dec(K.RAISE, 1)} %. That places Hawaii ${ord(rank)} of the ${K.AREAS.length} areas, in the middle of the ranking and well below ${ak.short} at ${K.dec(ak.pct, 2)} %. A GS-6 step 1 earns ${K.usd(g6.annual)}, a GS-8 ${K.usd(g8.annual)}, a GS-10 ${K.usd(g10.annual)}, a GS-11 ${K.usd(g11.annual)}, a GS-12 ${K.usd(g12.annual)} and a GS-13 ${K.usd(g13.annual)}. Only ${capped} cell of the table, GS-15 step 10, stops at the ${K.usd(K.CAP)} cap. Hawaii received locality pay through the Non-Foreign Area Retirement Equity Assurance Act of 2009, which phased it in for the nonforeign areas while the old nonforeign cost-of-living allowance was phased out.`,
   body: (h) => `
 <h2>One rate from Kauai to the Big Island</h2>

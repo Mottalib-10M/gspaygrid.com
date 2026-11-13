@@ -18,7 +18,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-8 Pay Scale 2026: Salary, Overtime and Step Increases',
   description: `GS-8 pay 2026: ${K.usd(rus1.annual)} to ${K.usd(rus10.annual)} in Rest of U.S., ${K.usd(dc1.annual)} at step 1 in Washington DC. Senior technician grade, hourly rates and the overtime cap from step ${firstCapped.step}.`,
-  intro: 'A senior grade of the one-grade-interval technical and assistant series, and the lowest grade where overtime can hit its cap. Set your county.',
+  intro: 'GS-8 is a senior grade of the one-grade-interval technical and assistant series, and the lowest grade where overtime can hit its cap. Set your county for your pay.',
   resume: `GS-8 is a less crowded grade than its neighbors: two-grade professional ladders skip it, so it is held mainly in one-grade-interval technical and assistant series, by senior technicians, lead assistants and specialists who handle the hardest cases of their line of work. In ${K.P.year} the GS-8 base table runs from ${K.usd(rus1.base)} at step 1 to ${K.usd(rus10.base)} at step 10. Locality pay brings step 1 to ${K.usd(rus1.annual)} in Rest of U.S., ${K.usd(sd1.annual)} in San Diego, ${K.usd(chi1.annual)} in Chicago and ${K.usd(dc1.annual)} in Washington. Step 10 in Rest of U.S. pays ${K.usd(rus10.annual)}, and every within-grade increase adds ${K.usd(inc)} a year there. The hourly rate at step 1 is ${K.usd2(rus1.hourly)}, with overtime at ${K.usd2(rus1.overtime)}. GS-8 is also the first grade where the hourly rate passes the GS-10 step 1 rate: from step ${firstCapped.step}, overtime for FLSA-exempt employees is capped at ${K.usd2(firstCapped.overtime)} an hour in Rest of U.S.`,
   body: (h) => `
 <h2>Who holds a GS-8</h2>

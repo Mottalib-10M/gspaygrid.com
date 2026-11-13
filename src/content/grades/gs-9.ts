@@ -13,7 +13,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-9 Pay Scale 2026: Salary Steps, Locality and Promotion',
   description: `GS-9 salary 2026: ${K.usd(rus1.annual)} at step 1 in Rest of U.S., ${K.usd(dc1.annual)} in Washington DC. Master's degree entry, step dates, overtime pay and the move up to GS-11.`,
-  intro: 'The grade of a new hire with a master\'s degree and the middle rung of the 5, 7, 9, 11 ladder. Set your county to read your own rate.',
+  intro: 'GS-9 is the grade of a new hire with a master\'s degree and the middle rung of the 5, 7, 9, 11 ladder. Set your county to read your own pay rate.',
   resume: `GS-9 is the developmental grade that most two-grade-interval careers pass through on the way from GS-7 to GS-11. Many hires arrive here with a master's degree or two full years of graduate study, which the OPM qualification standards for a large number of professional and administrative series accept for GS-9 in place of specialized experience. In ${K.P.year} the GS-9 base table starts at ${K.usd(rus1.base)}, and locality pay brings step 1 to ${K.usd(rus1.annual)} in Rest of U.S. (${K.dec(K.area('RUS').pct, 2)} %), ${K.usd(hou1.annual)} in Houston and ${K.usd(dc1.annual)} in the Washington area. Step 10 in Rest of U.S. is ${K.usd(rus10.annual)}. Each step is worth ${K.usd(step)} a year in Rest of U.S. Hourly pay at step 1 there is ${K.usd2(rus1.hourly)}, and overtime is paid at time and a half, ${K.usd2(rus1.overtime)} an hour. Most GS-9 employees on a ladder are promoted to GS-11 after about a year, so the steps you climb here are fewer than at the grades above.`,
   body: (h) => `
 <h2>How people get to GS-9</h2>

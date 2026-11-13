@@ -28,7 +28,7 @@ export default defineGuide({
     { q: 'Can a locality pay area include counties in several states?', a: `Yes. Areas follow commuting patterns, not state lines. ${multiState} of the ${named} metropolitan areas reach into more than one state; Washington-Baltimore-Arlington, for instance, covers counties in the District, Maryland, Virginia, West Virginia and Pennsylvania. The calculator lists each county under its own state with the area it belongs to.` },
   ],
   body: (h) => `
-<h2>How an area is defined</h2>
+<h2>How a locality pay area is defined</h2>
 <p>OPM's ${P.year} definitions start from the metropolitan statistical areas and combined statistical areas of the Office of Management and Budget. A locality pay area takes the counties of its core, then adds neighboring counties that pass commuting and employment tests set in 5 CFR 531.603. That is how a rural county can belong to a big-city area: enough of its workers commute there. Everything not listed falls into Rest of U.S. Alaska and Hawaii are each a single area that covers the whole state.</p>
 <p>Virginia has independent cities that are not part of any county, so Alexandria city and Fairfax County are listed separately and could, in principle, belong to different areas. Baltimore city and St. Louis city are listed the same way.</p>
 ${h.mini('lookup', { t: 'Check a second worksite', p: ['st', 'co'], d: { st: 'TX', co: 'Travis County', g: '9' } })}

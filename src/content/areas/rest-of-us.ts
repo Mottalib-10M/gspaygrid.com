@@ -19,7 +19,7 @@ export default defineArea({
   slug: 'rest-of-us',
   title: 'Rest of U.S. Locality Pay 2026: GS Rates and Who Gets Them',
   description: `Rest of U.S. locality pay 2026 is ${K.dec(a.pct, 2)} %, the lowest of ${K.AREAS.length} areas: GS-9 step 1 earns ${K.usd(g9.annual)}, GS-12 ${K.usd(g12.annual)}. Plus the states and territories it covers.`,
-  intro: `The default area: any worksite outside the named metro areas, Alaska and Hawaii is paid ${K.dec(a.pct, 2)} % above the base table.`,
+  intro: `The default area: any worksite outside the named metro areas, Alaska and Hawaii gets a locality pay of ${K.dec(a.pct, 2)} % above the base table.`,
   resume: `Rest of U.S. is the locality pay area for every federal worksite that OPM's ${K.P.year} definitions do not place in a named area: rural counties, small cities, Puerto Rico, Guam, the U.S. Virgin Islands and the other nonforeign areas. Its percentage, ${K.dec(a.pct, 2)} %, is the lowest of the ${K.AREAS.length} areas and the same as in 2025, since Executive Order 14368 raised only the base table, by ${K.dec(K.RAISE, 1)} %. A GS-5 step 1 earns ${K.usd(g5.annual)}, a GS-7 ${K.usd(g7.annual)}, a GS-9 ${K.usd(g9.annual)}, a GS-11 ${K.usd(g11.annual)}, a GS-12 ${K.usd(g12.annual)} and a GS-13 ${K.usd(g13.annual)}. GS-15 step 10 stops at ${K.usd(g15.annual)}, under the ${K.usd(K.CAP)} cap, so no cell of this table is capped. ${wholly.length} states have no county in any named area and are entirely Rest of U.S.: ${join(wholly)}. The next area up, ${next.short}, pays ${K.dec(next.pct - a.pct, 2)} points more.`,
   body: (h) => `
 <h2>A definition by exclusion</h2>

@@ -19,7 +19,7 @@ export default defineArea({
   where: ['CA', 'San Diego County'],
   title: 'San Diego Locality Pay 2026: GS Pay Table and Pay Cap',
   description: `San Diego locality pay 2026 is ${K.dec(a.pct, 2)} %: GS-7 step 1 earns ${K.usd(g(7))}, GS-11 ${K.usd(g(11))}, GS-12 ${K.usd(g(12))}. One county, hourly rates, the GS-15 cap and Los Angeles.`,
-  intro: `A single county, a single rate: ${K.dec(a.pct, 2)} % above the GS base table. Use the calculator for your grade and step in San Diego County.`,
+  intro: `A single county, a single locality pay rate: ${K.dec(a.pct, 2)} % above the GS base table. Use the calculator for your grade and step in San Diego County.`,
   resume: `San Diego-Chula Vista-Carlsbad is a one-county locality pay area. Every federal worksite in ${only} uses the same ${K.P.year} table, with ${K.dec(a.pct, 2)} % added to the General Schedule base rates, the percentage it already had in 2025. That is the ${rank === 6 ? 'sixth' : `number ${rank}`} highest of ${K.AREAS.length} areas, just ${K.dec(dcb.pct - a.pct, 2)} points under Washington-Baltimore and ${K.dec(la.pct - a.pct, 2)} points under Los Angeles. At step 1, GS-5 pays ${K.usd(g(5))}, GS-7 ${K.usd(g(7))}, GS-9 ${K.usd(g(9))}, GS-11 ${K.usd(g(11))}, GS-12 ${K.usd(g(12))} and GS-13 ${K.usd(g(13))}; by the hour, GS-9 step 1 is ${K.usd2(p(9).hourly)}. GS-15 steps ${firstCap} through 10, ${capped} cells, are held at the ${K.usd(K.CAP)} cap. The counties around San Diego are not in this area: Orange and Riverside to the north and Imperial to the east all belong to Los Angeles-Long Beach, so a worksite across the county line is paid ${K.usd(g(12, 1, 'LA') - g(12))} more at GS-12 step 1, not less.`,
   body: (h) => `
 <h2>Only one county, and its neighbors pay more</h2>

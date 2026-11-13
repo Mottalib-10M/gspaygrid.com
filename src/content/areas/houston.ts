@@ -18,7 +18,7 @@ export default defineArea({
   where: ['TX', 'Harris County'],
   title: 'Houston Locality Pay 2026: GS Pay Table and Texas Counties',
   description: `Houston locality pay 2026 is ${K.dec(a.pct, 2)} %, above Washington DC: GS-11 step 1 pays ${K.usd(g(11))}, GS-13 ${K.usd(g(13))}. All ${counties.length} counties, the GS-15 cap and Dallas compared.`,
-  intro: `Houston's ${K.dec(a.pct, 2)} % beats Washington, Boston and San Diego. Pick a Texas county below to see if your office is in the area.`,
+  intro: `Houston's ${K.dec(a.pct, 2)} % locality pay beats Washington, Boston and San Diego. Pick a Texas county below to see if your office is in the area.`,
   resume: `The Houston-The Woodlands locality pay area adds ${K.dec(a.pct, 2)} % to General Schedule base pay in ${K.P.year}. That is the ${rank === 4 ? 'fourth' : `number ${rank}`} highest percentage of ${K.AREAS.length}, behind only ${above.join(', ')}, and higher than Washington-Baltimore at ${K.dec(dcb.pct, 2)} %. The percentage is the same as in 2025; the ${K.dec(K.RAISE, 1)} % raise of January ${K.P.year} applied to the base table. A GS-5 step 1 earns ${K.usd(g(5))}, GS-7 ${K.usd(g(7))}, GS-9 ${K.usd(g(9))}, GS-11 ${K.usd(g(11))}, GS-12 ${K.usd(g(12))} and GS-13 ${K.usd(g(13))}. The ${counties.length} counties of the area run from Harris, Fort Bend, Montgomery, Brazoria and Galveston out to Walker, Grimes, Washington, Matagorda and Jackson. The pay cap of ${K.usd(K.CAP)} holds ${capped} GS-15 steps. Inside Texas the contrast is strong: Dallas-Fort Worth is ${K.dec(dfw.pct, 2)} %, ${K.usd(g(12) - g(12, 1, 'DFW'))} less for a GS-12 step 1, and Austin ${K.dec(au.pct, 2)} %.`,
   body: (h) => `
 <h2>Why Houston outranks Washington</h2>

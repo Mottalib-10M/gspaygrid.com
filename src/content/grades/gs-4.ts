@@ -16,7 +16,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-4 Pay Scale 2026: Steps, Special Rates and GS-5 Promotion',
   description: `GS-4 pay 2026: ${K.usd(rus1.annual)} at step 1 and ${K.usd(rus10.annual)} at step 10 in Rest of U.S., ${K.usd(dc1.annual)} in Washington DC. Where special table 001M stops and what GS-5 pays you.`,
-  intro: 'The last grade lifted by special table 001M, and only at its lower steps. Choose your county to see your own rate.',
+  intro: 'GS-4 is the last grade lifted by special table 001M, and only at its lower steps. Choose your county to see your own pay rate.',
   resume: `GS-4 is a common grade for experienced clerks, technicians in training, office and program assistants, and aides who handle a full range of routine work with little supervision. For many of these series, OPM qualification standards generally accept two years of education above high school in place of experience. In ${K.P.year} GS-4 is the last grade touched by special rate table 001M, and only partly: the table covers steps 1 to ${covered}, from ${K.usd(sp[0])} to ${K.usd(sp[covered - 1])}, and leaves steps ${covered + 1} to 10 blank. In Rest of U.S. the 001M rate applies at step 1, ${K.usd(rus1.annual)}, which is ${K.usd(lift)} above the locality rate, and at the lower steps. From step ${covered + 1} the normal Rest of U.S. locality rate takes over, ${K.usd(rus6.annual)} at step ${covered + 1} and ${K.usd(rus10.annual)} at step 10. In larger areas locality wins from step 1: ${K.usd(dc1.annual)} in Washington and ${K.usd(sf1.annual)} in ${K.area('SF').short}. Hourly pay at step 1 is ${K.usd2(rus1.hourly)} in Rest of U.S.`,
   body: (h) => `
 <h2>Where table 001M fades out</h2>

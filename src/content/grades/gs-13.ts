@@ -13,7 +13,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-13 Pay Scale 2026: Salary Table, Steps and FERS High-3',
   description: `GS-13 pay 2026: ${K.usd(rus1.annual)} to ${K.usd(rus10.annual)} in Rest of U.S., ${K.usd(dc1.annual)} at step 1 in DC. Senior specialist grade, overtime limits, the GS-14 move and FERS pension.`,
-  intro: 'The grade of senior specialists, team leads and many first-line supervisors. Choose your county to see your step and the next one.',
+  intro: 'GS-13 is the grade of senior specialists, team leads and many first-line supervisors. Choose your county to see your pay at your step and the next one.',
   resume: `GS-13 is where many federal careers settle for good: senior specialists, technical experts, team leaders and a share of first-line supervisors, often reached by a competitive announcement after several years at GS-12. In ${K.P.year} the base rate runs from ${K.usd(rus1.base)} at step 1 to ${K.usd(rus10.base)} at step 10. Locality lifts step 1 to ${K.usd(rus1.annual)} in Rest of U.S., ${K.usd(bos1.annual)} in Boston and ${K.usd(dc1.annual)} in the Washington area, where step 10 pays ${K.usd(dc10.annual)}. Every GS-13 hourly rate is above the GS-10 step 1 line, so FLSA-exempt overtime is paid at straight time: ${K.usd2(ot.hourly)} an hour at step 1 in Rest of U.S., the same as a regular hour. Because many employees spend their last years at GS-13, its upper steps often make the FERS high-3: three years at steps 8, 9 and 10 in Washington average ${K.usd(h3)}, and 30 years of service at the MRA turn that into about ${K.usd(pen.gross)} a year before any survivor election.`,
   body: (h) => `
 <h2>The work behind a GS-13</h2>

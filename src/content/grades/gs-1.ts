@@ -18,7 +18,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-1 Pay Scale 2026: Special Rate Salary, Steps and Hourly',
   description: `GS-1 pay 2026: ${K.usd(rus1.annual)} at step 1 and ${K.usd(rus10.annual)} at step 10, the same in nearly every locality area under special table 001M. Hourly rates, overtime and steps.`,
-  intro: 'The lowest grade of the General Schedule, and the one where locality matters least. Choose a county to confirm your rate.',
+  intro: 'GS-1 is the lowest grade of the General Schedule, and the one where locality pay matters least. Choose a county to confirm your rate.',
   resume: `GS-1 is the first grade of the General Schedule and very few federal positions are classified there. Its pay in ${K.P.year} works differently from the grades above it. The base table gives ${K.usd(rus1.base)} at step 1, and even the ${K.dec(K.area('RUS').pct, 2)} % Rest of U.S. locality payment only lifts that to ${K.usd(rus1.locality)}. Special rate table 001M, which OPM sets nationwide for GS-1 to GS-4, pays more: ${K.usd(sp[0])} at step 1 and ${K.usd(sp[9])} at step 10. Because 001M is higher than the locality rate almost everywhere, a GS-1 step 1 earns ${K.usd(rus1.annual)} in Rest of U.S., ${K.usd(K.pay(g, 1, 'DCB').annual)} in Washington and ${K.usd(sf1.annual)} in ${K.area('SF').short}, the highest locality area. Hourly pay at step 1 is ${K.usd2(rus1.hourly)}, overtime is ${K.usd2(rus1.overtime)} an hour, and each step adds ${K.usd(spStep)} a year. Those figures include the ${K.dec(K.RAISE, 1)} % raise of ${K.P.year}.`,
   body: (h) => `
 <h2>One national rate instead of 58 local ones</h2>

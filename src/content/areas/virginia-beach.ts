@@ -20,7 +20,7 @@ export default defineArea({
   where: ['VA', 'Norfolk city'],
   title: 'Virginia Beach Locality Pay 2026: GS Pay in Hampton Roads',
   description: `Virginia Beach locality pay 2026 is ${K.dec(a.pct, 2)} % for Norfolk, Hampton Roads and ${nc.length} North Carolina counties: GS-11 step 1 pays ${K.usd(g(11))}, GS-12 ${K.usd(g(12))}. Full table.`,
-  intro: `Norfolk, Newport News, Chesapeake and the rest of Hampton Roads are paid ${K.dec(a.pct, 2)} % above the GS base rates in ${K.P.year}.`,
+  intro: `Norfolk, Newport News, Chesapeake and the rest of Hampton Roads share the Virginia Beach locality pay: ${K.dec(a.pct, 2)} % above the GS base rates in ${K.P.year}.`,
   resume: `The Virginia Beach-Norfolk locality pay area adds ${K.dec(a.pct, 2)} % to the General Schedule base table in ${K.P.year}, unchanged from 2025, since Executive Order 14368 froze all localities while raising base pay ${K.dec(K.RAISE, 1)} %. It spans two states: ${va.length} Virginia jurisdictions, ${cities.length} of them independent cities such as Norfolk, Virginia Beach, Chesapeake, Hampton and Newport News, and ${nc.length} counties of northeastern North Carolina, including Dare and Currituck. A GS-5 step 1 earns ${K.usd(g(5))}, a GS-7 ${K.usd(g(7))}, a GS-9 ${K.usd(g(9))}, a GS-11 ${K.usd(g(11))}, a GS-12 ${K.usd(g(12))} and a GS-13 ${K.usd(g(13))}. The area ranks ${ord(rank)} of ${K.AREAS.length}. Richmond, the next area west, pays ${K.dec(rch.pct, 2)} %, and the Washington area ${K.dec(dc.pct, 2)} %, so a transfer north within Virginia usually brings a raise at the same grade and step. No cell of the table is capped: GS-15 step 10 pays ${K.usd(top)}.`,
   body: (h) => `
 <h2>Independent cities and two states</h2>

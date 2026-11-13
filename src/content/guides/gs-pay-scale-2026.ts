@@ -17,7 +17,7 @@ export default defineGuide({
   title: 'GS Pay Scale 2026: Base Table and All 58 Locality Tables',
   description: `GS pay scale 2026: the base table from ${K.usd(B[0][0])} to ${K.usd(B[14][9])}, the ${K.AREAS.length} locality tables, the ${K.dec(K.RAISE, 1)} % raise and the ${K.usd(K.CAP)} cap, rebuilt cell by cell from OPM files.`,
   h1: 'GS pay scale 2026: the base table and every locality table',
-  intro: 'Choose a locality area to print its full 2026 table, annual or hourly. Every cell is recomputed from the OPM base table and percentage.',
+  intro: 'Choose a locality area to print its full 2026 pay table, annual or hourly. Every cell is recomputed from the OPM base table and percentage.',
   resume: `The 2026 General Schedule has one base table of 15 grades and 10 steps, from ${K.usd(B[0][0])} for GS-1 step 1 to ${K.usd(B[14][9])} for GS-15 step 10, and ${K.AREAS.length} locality tables built on it. Executive Order ${P.pay.eo.number} of December 18, 2025 raised the base table by ${K.dec(K.RAISE, 1)} % from the first pay period beginning on or after January 1, 2026, which was January 11, and left every locality percentage at its 2025 level. The lowest, Rest of U.S., is ${K.dec(rus.pct, 2)} %; the highest, ${sf.short}, is ${K.dec(sf.pct, 2)} %. A locality rate is the base rate times one plus the percentage, rounded to the dollar, and capped at ${K.usd(K.CAP)}, the 2026 rate for level IV of the Executive Schedule. A GS-9 step 1 therefore earns ${K.usd(g9.annual)} in Rest of U.S. and ${K.usd(g9sf.annual)} in ${sf.short}. GS-1 to GS-4 can be paid from special table 001M when it is higher. The 2027 tables do not exist yet.`,
   tool: 'table',
   toolArg: { a: 'RUS', u: 'yr' },

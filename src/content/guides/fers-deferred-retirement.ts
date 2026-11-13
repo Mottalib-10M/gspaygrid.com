@@ -16,7 +16,7 @@ export default defineGuide({
   title: 'FERS Deferred Retirement 2026: Leaving Early, Annuity Later',
   description: 'FERS deferred retirement 2026: leave with 5 years, collect at 62, or at your MRA with 10 years minus 5 % a year under 62. No supplement, no sick leave credit.',
   h1: 'FERS deferred retirement in 2026: what you keep when you leave before retirement age',
-  intro: 'You resign or move to the private sector before you can retire. Your FERS service still buys an annuity later. Set the age you leave, your years and the age the annuity starts.',
+  intro: 'You resign or move to the private sector before you can retire. Your FERS service still buys a deferred retirement annuity later. Set the age you leave, your years and the age the annuity starts.',
   resume: `A FERS deferred annuity is the pension you keep when you leave federal service before you are eligible to retire, under 5 U.S.C. 8413. With at least 5 years of creditable service, it starts at 62. With at least 10 years, you can ask for it as early as your minimum retirement age, but it is then reduced by five-twelfths of 1 % for each month under 62, 5 % a year, unless you would have 30 years at the MRA or 20 years at 60 when it begins. A worker born in ${BY} who leaves at 40 with 15 years and a ${K.usd(H3)} high-3 gets ${K.usd(a62.gross)} a year from 62, or ${K.usd(aM.net)} from the MRA of ${K.ym(mra)}, ${red(aM)} less. A deferred annuity uses the 1 % multiplier, carries no FERS supplement, no credit for unused sick leave and no COLA before 62, and in general you cannot return to FEHB health coverage through it. Taking a refund of contributions instead cancels the annuity for that service.`,
   tool: 'fers',
   toolArg: { by: String(BY), ra: 40, sy: 15, h3: H3, start: 62, sv: 'none' },
@@ -28,7 +28,7 @@ export default defineGuide({
     { q: 'Is the reduction waived on a deferred annuity at 60?', a: `Yes, if you have at least 20 years of service. Section 8415(h)(2) lifts the age reduction when, at the date the annuity begins, you would meet the age and service of an unreduced retirement: 60 with 20 years or the MRA with 30. Someone who left at 45 with 20 years gets ${K.usd(b60.gross)} from 60, against ${K.usd(bM.net)} from the MRA.` },
   ],
   body: (h) => `
-<h2>Two rules in section 8413</h2>
+<h2>Two rules for FERS deferred retirement in section 8413</h2>
 <p>${h.src('usc_8413', 'Section 8413 of title 5')} covers employees who are separated, or transferred to a position outside FERS, before they qualify for an immediate retirement. Paragraph (a) gives anyone with 5 years of service an annuity beginning at 62. Paragraph (b) gives an employee with 10 years who leaves before the MRA the option of a written election to start the annuity at the MRA or at any later date before 62. A worker who leaves after reaching the MRA with 10 years is not deferred: that is an ${h.a('fers-mra-10', 'MRA+10 retirement')}, with its own rules.</p>
 <p>The annuity is not automatic: you apply to OPM for it. The amount is computed from your federal record alone: your high-3 from your years in service, your creditable service and the 1 % multiplier. The 1.1 % rate is for employees who retire under section 8412 at 62 or later with 20 years, so it does not apply to a deferred annuity.</p>
 <h2>The reduction under 62 and when it disappears</h2>

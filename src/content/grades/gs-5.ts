@@ -13,7 +13,7 @@ export default defineGrade({
   grade: g,
   title: "GS-5 Pay Scale 2026: Bachelor's Degree Salary by Locality",
   description: `GS-5 salary 2026: ${K.usd(rus1.annual)} at step 1 in Rest of U.S., ${K.usd(dc1.annual)} in Washington DC. The bachelor's degree entry grade, steps, hourly pay and the move to GS-7.`,
-  intro: "The usual starting grade with a bachelor's degree, and the first rung of the 5, 7, 9, 11 ladder. Pick your county for your rate.",
+  intro: "GS-5 is the usual starting grade with a bachelor's degree, and the first rung of the 5, 7, 9, 11 ladder. Pick your county for your pay rate.",
   resume: `GS-5 is the grade at which many federal careers begin for someone with a bachelor's degree. For a large number of professional, administrative and technical series, the OPM qualification standards accept a four-year course of study leading to a bachelor's degree for GS-5, in place of one year of specialized experience at the GS-4 level. It is also the first grade paid entirely from the locality tables, since special rate table 001M stops at GS-4. In ${K.P.year} the GS-5 base table runs from ${K.usd(rus1.base)} to ${K.usd(rus10.base)}. With locality, step 1 pays ${K.usd(rus1.annual)} in Rest of U.S. (${K.dec(K.area('RUS').pct, 2)} %), ${K.usd(den1.annual)} in Denver, ${K.usd(dc1.annual)} in Washington and ${K.usd(la1.annual)} in Los Angeles. Step 10 in Rest of U.S. is ${K.usd(rus10.annual)}. Each step is worth ${K.usd(inc)} a year there, the hourly rate at step 1 is ${K.usd2(rus1.hourly)}, and a promotion to GS-7 after a year adds several thousand dollars.`,
   body: (h) => `
 <h2>A degree, a grade, a ladder</h2>

@@ -21,7 +21,7 @@ export default defineArea({
   where: ['FL', 'Miami-Dade County'],
   title: 'Miami Locality Pay 2026: GS Pay from Miami-Dade to St. Lucie',
   description: `Miami locality pay 2026 is ${K.dec(a.pct, 2)} % in ${names.length} South Florida counties: GS-11 step 1 pays ${K.usd(g(11))}, GS-13 ${K.usd(g(13))}. Why Orlando, Tampa and Jacksonville get less.`,
-  intro: `From the Keys to the Treasure Coast, ${names.length} Florida counties are paid ${K.dec(a.pct, 2)} % above the GS base table in ${K.P.year}.`,
+  intro: `From the Keys to the Treasure Coast, ${names.length} Florida counties get a locality pay of ${K.dec(a.pct, 2)} % above the GS base table in ${K.P.year}.`,
   resume: `Miami-Port St. Lucie-Fort Lauderdale is the higher of the two locality pay areas in Florida. In ${K.P.year} it adds ${K.dec(a.pct, 2)} % to the General Schedule base table, the same percentage as in 2025, because Executive Order 14368 froze every locality while the base rates rose ${K.dec(K.RAISE, 1)} %. It covers ${names.length} counties: ${join(names)}. A GS-5 step 1 earns ${K.usd(g(5))}, a GS-7 ${K.usd(g(7))}, a GS-9 ${K.usd(g(9))}, a GS-11 ${K.usd(g(11))}, a GS-12 ${K.usd(g(12))}, a GS-13 ${K.usd(g(13))} and a GS-14 ${K.usd(g(14))}. It ranks ${ord(rank)} of the ${K.AREAS.length} areas. The only other named area in the state, Palm Bay-Melbourne-Titusville, pays ${K.dec(pb.pct, 2)} %, and every remaining Florida county, including those of Orlando, Tampa and Jacksonville, is Rest of U.S. at ${K.dec(rus.pct, 2)} %. GS-15 is capped at ${K.usd(K.CAP)} from step ${firstCapped}.`,
   body: (h) => `
 <h2>Florida has one high-locality corridor</h2>

@@ -16,7 +16,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-14 Pay Scale 2026: Salary by Step, Locality and Pay Cap',
   description: `GS-14 pay 2026: ${K.usd(rus1.annual)} at step 1 in Rest of U.S., ${K.usd(dc1.annual)} in DC. Supervisor and expert grade, first steps held at the pay cap, FERS high-3 at age 62.`,
-  intro: 'A grade of supervisors, program managers and recognized experts, and the first where the pay cap touches a step. Choose your county below.',
+  intro: 'GS-14 is a grade of supervisors, program managers and recognized experts, and the first where the pay cap touches a step. Choose your county below.',
   resume: `GS-14 positions are mostly supervisors of a branch or office, program managers, and senior experts whose work sets policy or technical direction for others. Entry is almost always competitive, from GS-13 after at least a year of specialized experience at that level. In ${K.P.year} the GS-14 base rate goes from ${K.usd(rus1.base)} to ${K.usd(rus10.base)}; with locality, step 1 pays ${K.usd(rus1.annual)} in Rest of U.S. and ${K.usd(dc1.annual)} in the Washington area, and step 10 pays ${K.usd(rus10.annual)} and ${K.usd(dc10.annual)}. GS-14 is the lowest grade where the ${K.usd(K.CAP)} pay cap, the Executive Schedule level IV rate, holds a cell down: in ${K.area('SF').short}, ${sfCapped} steps stop at the cap. Overtime for FLSA-exempt employees is paid at straight time at every step. For FERS, a high-3 built on GS-14 steps 8 to 10 in Rest of U.S. averages ${K.usd(h3)}, and retiring at 62 with 25 years at the 1.1 % multiplier pays about ${K.usd(at62.gross)} a year.`,
   body: (h) => `
 <h2>Who holds GS-14</h2>

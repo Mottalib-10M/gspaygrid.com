@@ -10,7 +10,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-12 Pay Scale 2026: Salary by Step and Locality Area',
   description: `GS-12 pay 2026: ${K.usd(rus1.annual)} to ${K.usd(rus10.annual)} in Rest of U.S., ${K.usd(dc1.annual)} at step 1 in Washington DC. All 10 steps in 58 areas, hourly rates and promotion from GS-11.`,
-  intro: 'The full journeyman grade of most two-grade-interval careers. Pick your county to see your step and the next one.',
+  intro: 'GS-12 is the full journeyman grade of most two-grade-interval careers. Pick your county to see your pay at your step and the next one.',
   resume: `GS-12 is where most federal professionals in a two-grade-interval series, the ladders that go 5, 7, 9, 11, land as full-performance employees: contract specialists, IT specialists, engineers after a few years, program analysts, auditors. In ${K.P.year} the base GS-12 table runs from ${K.usd(rus1.base)} at step 1 to ${K.usd(rus10.base)} at step 10, and nobody is paid the base alone: locality pay lifts it by ${K.dec(K.area('RUS').pct, 2)} % in Rest of U.S., to ${K.usd(rus1.annual)}, and by ${K.dec(K.area('DCB').pct, 2)} % in the Washington area, to ${K.usd(dc1.annual)}. The highest area, ${K.area('SF').short}, pays ${K.usd(sf1.annual)} at step 1. From step 1 to step 10 the grade adds ${K.usd(rus10.annual - rus1.annual)} in Rest of U.S. over 18 years of on-time step increases. The 2026 figures include the ${K.dec(K.RAISE, 1)} % raise of Executive Order 14368 with every locality percentage frozen at its 2025 level.`,
   body: (h) => `
 <h2>Who is a GS-12</h2>

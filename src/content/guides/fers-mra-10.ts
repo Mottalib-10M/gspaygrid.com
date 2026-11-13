@@ -33,7 +33,7 @@ export default defineGuide({
     { q: 'Does unused sick leave reduce the MRA+10 penalty?', a: `No. Sick leave raises the annuity before the reduction, since it is added to service for the computation of an MRA+10 annuity, but it does not count toward the 20 years that let you avoid the cut by starting at 60, nor toward the 30 years of an unreduced retirement. A full year of sick leave, ${K.num(F.sickLeaveHoursPerYear)} hours, adds about ${K.usd(bSick.net - b57.net)} a year in the 22-year example.` },
   ],
   body: (h) => `
-<h2>Who MRA+10 is for</h2>
+<h2>Who MRA+10 retirement is for</h2>
 <p>MRA+10 is set by ${h.src('usc_8412', '5 U.S.C. 8412')} for employees who reach their ${h.a('fers-minimum-retirement-age', 'minimum retirement age')} with at least 10 years of creditable service but not the 30 that bring an unreduced annuity. You must have reached the MRA on the day you separate, and you cannot use it if you are already 62. It is the usual path for people who joined the government in mid career and for employees with 20 years who do not want to wait until 60.</p>
 ${h.mini('mra10', { t: 'Move the start age: 57, 60, 62', p: ['sy', 'start'], d: { by: '1970', sy: 22, h3: 100000, start: 57 } })}
 <h2>How the reduction works</h2>

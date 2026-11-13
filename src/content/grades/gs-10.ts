@@ -13,7 +13,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-10 Pay Scale 2026: Salary, Steps and the Overtime Cap',
   description: `GS-10 pay 2026: ${K.usd(rus1.annual)} to ${K.usd(rus10.annual)} in Rest of U.S. A rare grade of one-grade technical and law enforcement series, and the base of the federal overtime cap.`,
-  intro: 'Few employees hold GS-10, yet its step 1 rate sets the overtime ceiling for every grade above it. Pick your county to read your rate.',
+  intro: 'Few employees hold GS-10, yet its step 1 pay rate sets the overtime ceiling for every grade above it. Pick your county to read your rate.',
   resume: `GS-10 is one of the least used grades of the General Schedule. Two-grade-interval careers skip it, going from GS-9 straight to GS-11, so the employees you find here are mostly in one-grade-interval series, such as technical, assistant and some law enforcement positions, where every grade from GS-5 up is a separate rung. In ${K.P.year} GS-10 step 1 pays ${K.usd(rus1.annual)} in Rest of U.S. on a base of ${K.usd(rus1.base)}, ${K.usd(dc1.annual)} in Washington DC and ${K.usd(sf1.annual)} in ${K.area('SF').short}, the highest area. Step 10 reaches ${K.usd(rus10.annual)} in Rest of U.S. The grade matters far beyond its own holders: for FLSA-exempt employees, overtime is limited to 1.5 times the GS-10 step 1 hourly rate of the area. In Rest of U.S. that rate is ${K.usd2(rus1.hourly)}, so overtime above GS-10 step 1 is capped at ${K.usd2(rus1.overtime)} an hour, unless your own hourly rate is higher.`,
   body: (h) => `
 <h2>Why so few employees are GS-10</h2>

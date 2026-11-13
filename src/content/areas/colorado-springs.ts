@@ -18,7 +18,7 @@ export default defineArea({
   slug: 'colorado-springs',
   title: 'Colorado Springs Locality Pay 2026: GS Pay vs Denver',
   description: `Colorado Springs locality pay 2026 is ${K.dec(a.pct, 2)} %, ${K.dec(den.pct - a.pct, 2)} points under Denver: GS-11 step 1 pays ${K.usd(g(11))}, GS-12 ${K.usd(g(12))}. Counties, pay table, nearby areas.`,
-  intro: `El Paso, Fremont, Pueblo and Teller counties share a ${K.dec(a.pct, 2)} % locality in ${K.P.year}. Denver, to the north, is paid far more.`,
+  intro: `El Paso, Fremont, Pueblo and Teller counties share the Colorado Springs locality pay of ${K.dec(a.pct, 2)} % in ${K.P.year}. Denver, to the north, is paid far more.`,
   resume: `The Colorado Springs locality pay area pays ${K.dec(a.pct, 2)} % above the General Schedule base table in ${K.P.year}, unchanged from 2025: Executive Order 14368 raised the base rates by ${K.dec(K.RAISE, 1)} % and kept every locality percentage where it was. It covers ${names.length} Colorado counties, ${join(names)}, and ranks ${ord(rank)} of the ${K.AREAS.length} areas. A GS-7 step 1 earns ${K.usd(g(7))}, a GS-9 ${K.usd(g(9))}, a GS-11 ${K.usd(g(11))}, a GS-12 ${K.usd(g(12))}, a GS-13 ${K.usd(g(13))} and a GS-14 ${K.usd(g(14))}. The defining fact of this area is its neighbor: the Denver-Aurora area, which starts at the next county line to the north, pays ${K.dec(den.pct, 2)} %. At GS-12 step 1 the gap is ${gapDen(12, 1)} a year, and at GS-13 step 5 it is ${gapDen(13, 5)}. Colorado counties outside both areas are Rest of U.S., at ${K.dec(rus.pct, 2)} %.`,
   body: (h) => `
 <h2>Two Front Range tables</h2>

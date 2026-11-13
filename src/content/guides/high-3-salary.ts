@@ -32,7 +32,7 @@ export default defineGuide({
     { q: 'Is it worth taking a promotion one year before retirement?', a: `Usually yes, if the pay rises. In our GS-12 to GS-13 example, one year at the new rate lifts the high-3 by ${K.usd(h1 - h0)}, which adds ${K.usd(ann(h1 - h0))} a year to a 30-year annuity. Three full years would add ${K.usd(ann(h3 - h0))}. Staying longer after the promotion lets the higher rate fill the whole three-year window.` },
   ],
   body: (h) => `
-<h2>The definition</h2>
+<h2>The definition of the high-3</h2>
 <p>${h.src('opm_fers_computation', "OPM's computation page")} defines the high-3 as the highest average basic pay you earned during any three consecutive years of service. Basic pay is the rate set for your position: for a GS employee, the grade and step rate of the ${h.a('gs-pay-scale-2026', 'GS pay table')} plus ${h.a('locality-pay', 'locality pay')}. The average is weighted by time: if you held one rate for eight months and another for four, each counts for that share of the year. The handbook worksheets round the result to the nearest dollar.</p>
 <h2>What is in, what is out</h2>
 ${h.table(['Payment', 'In the high-3?'], [

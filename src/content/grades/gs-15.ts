@@ -16,7 +16,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-15 Pay Scale 2026: Salary, Pay Cap and Compression',
   description: `GS-15 pay 2026: ${K.usd(rus1.annual)} to ${K.usd(rus10.annual)} in Rest of U.S. Top steps held at the ${K.usd(K.CAP)} cap in ${hit.length} areas, the count of capped cells per area and pay compression.`,
-  intro: 'The top grade of the General Schedule, where locality pay runs into the Executive Schedule ceiling. Choose your county to see whether your step is capped.',
+  intro: 'GS-15 is the top grade of the General Schedule, where locality pay runs into the Executive Schedule ceiling. Choose your county to see whether your step is capped.',
   resume: `GS-15 is the highest General Schedule grade, held by senior managers, division directors and top technical experts. In ${K.P.year} the base rate runs from ${K.usd(rus1.base)} at step 1 to ${K.usd(rus10.base)} at step 10, and locality pay brings step 1 to ${K.usd(rus1.annual)} in Rest of U.S., ${K.usd(dc1.annual)} in the Washington area and ${K.usd(sf1.annual)} in ${K.area('SF').short}. Step 10 in Rest of U.S. pays ${K.usd(rus10.annual)}. No GS rate can exceed the rate of Executive Schedule level IV, ${K.usd(K.CAP)} in ${K.P.year}, and at GS-15 that cap is real: it holds down at least one step in ${hit.length} of the ${K.AREAS.length} locality areas. In ${K.area('SF').short}, ${sfN} of the 10 steps are paid exactly ${K.usd(K.CAP)}; in New York, ${nyN}; in Washington, ${dcN}. Only ${free} areas, Rest of U.S. among them, pay every GS-15 step in full. The result is pay compression: in those capped cells, step increases, promotions into the grade and the annual raise stop adding money.`,
   body: (h) => `
 <h2>Capped cells, area by area</h2>

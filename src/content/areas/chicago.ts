@@ -20,7 +20,7 @@ export default defineArea({
   where: ['IL', 'Cook County'],
   title: 'Chicago Locality Pay 2026: GS Table for IL, IN and WI',
   description: `Chicago locality pay 2026 is ${K.dec(a.pct, 2)} %: GS-9 step 1 earns ${K.usd(g(9))}, GS-12 ${K.usd(g(12))}. All ${n} counties in Illinois, Indiana and Wisconsin, hourly rates and the cap.`,
-  intro: `Cook County and ${n - 1} other counties across three states share a ${K.dec(a.pct, 2)} % locality rate. Choose your county to confirm.`,
+  intro: `Cook County and ${n - 1} other counties across three states share a ${K.dec(a.pct, 2)} % locality pay rate. Choose your county to confirm.`,
   resume: `For ${K.P.year}, the Chicago-Naperville locality pay area adds ${K.dec(a.pct, 2)} % to General Schedule base rates, the same figure as in 2025, since the January raise of ${K.dec(K.RAISE, 1)} % went entirely to the base table. That places Chicago ${rank}th of ${K.AREAS.length} areas, with ${below} areas below it. Annual pay at step 1 is ${K.usd(g(5))} for GS-5, ${K.usd(g(7))} for GS-7, ${K.usd(g(9))} for GS-9, ${K.usd(g(11))} for GS-11, ${K.usd(g(12))} for GS-12 and ${K.usd(g(13))} for GS-13; by the hour, a GS-12 step 1 earns ${K.usd2(p(12).hourly)}. The area lists ${n} counties: ${of('IL').length} in Illinois, from Cook and DuPage out to Winnebago, LaSalle and Kankakee, ${of('IN').length} in northwest Indiana, and ${of('WI').join(', ')} in Wisconsin. GS-15 reaches the ${K.usd(K.CAP)} cap at step ${firstCap}, which leaves ${capped} steps capped. Milwaukee, to the north, is a separate area at ${K.dec(mil.pct, 2)} %, ${K.usd(g(12) - g(12, 1, 'MIL'))} lower for a GS-12 step 1.`,
   body: (h) => `
 <h2>Kenosha yes, Racine no</h2>

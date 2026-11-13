@@ -43,7 +43,7 @@ const capNote = sorted.some((a) => pay(g, 10, a.code).capped) ? ` Rates shown at
     <Clamp text={def.resume} lang={lang} id={`clamp-gs-${g}`} class="mb-8" />
     <Body html={def.body(helpers())} path={path} />
     <section class="mt-10" data-chrome>
-      <h2 class="font-serif text-2xl font-bold text-navy-900">GS-{g} in all 58 locality areas</h2>
+      <h2 class="font-serif text-2xl font-bold text-navy-900">GS-{g} pay scale in all 58 locality areas</h2>
       <Fragment set:html={table(['Locality area', 'Step 1', 'Step 5', 'Step 10'], rows, `2026 annual rates for GS-${g}, highest locality first.${capNote}`, ['l', 'r', 'r', 'r'])} />
     </section>
   </article>

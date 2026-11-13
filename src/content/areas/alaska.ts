@@ -17,7 +17,7 @@ export default defineArea({
   slug: 'alaska',
   title: 'Alaska Locality Pay 2026: GS Pay Table for the Whole State',
   description: `Alaska locality pay 2026 is ${K.dec(a.pct, 2)} % in every borough: GS-11 step 1 pays ${K.usd(g11.annual)}, GS-13 ${K.usd(g13.annual)}. Rank among ${K.AREAS.length} areas, the GS-15 cap and the COLA history.`,
-  intro: `One percentage for the entire state, from Anchorage to the North Slope: ${K.dec(a.pct, 2)} % on top of the GS base table.`,
+  intro: `Alaska locality pay is one percentage for the entire state, from Anchorage to the North Slope: ${K.dec(a.pct, 2)} % on top of the GS base table.`,
   resume: `Alaska is a single locality pay area: every federal worksite in the state, in Anchorage, Fairbanks, Juneau or a remote village, uses the same ${K.P.year} table at ${K.dec(a.pct, 2)} % above the base rates. That percentage did not change from 2025, because Executive Order 14368 raised the base table by ${K.dec(K.RAISE, 1)} % and froze every locality. It ranks ${ord(rank)} of the ${K.AREAS.length} areas, between ${above.short} and ${below.short}. A GS-5 step 1 earns ${K.usd(g5.annual)}, a GS-7 ${K.usd(g7.annual)}, a GS-9 ${K.usd(g9.annual)}, a GS-11 ${K.usd(g11.annual)}, a GS-12 ${K.usd(g12.annual)}, a GS-13 ${K.usd(g13.annual)} and a GS-14 ${K.usd(g14.annual)}. GS-15 reaches the ${K.usd(K.CAP)} cap from step ${firstCapped}, so ${capped} steps show the same figure. Locality pay came to Alaska through the Non-Foreign Area Retirement Equity Assurance Act of 2009; the old nonforeign cost-of-living allowance was phased out.`,
   body: (h) => `
 <h2>No county lookup needed</h2>

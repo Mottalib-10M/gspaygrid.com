@@ -33,7 +33,7 @@ export default defineGuide({
     { q: 'Is the partial FERS survivor benefit a better deal than the full one?', a: `On paper they are priced the same: the partial benefit costs ${p0(S.partialCost)} for ${p0(S.partialBenefit)}, the full one ${p0(S.fullCost)} for ${p0(S.fullBenefit)}, so each survivor year repays ${K.dec(1 / ratioP, 0)} years of cost in both cases. The full election protects more income, and the partial one still keeps the survivor annuity that health coverage after your death requires.` },
   ],
   body: (h) => `
-<h2>The three choices at retirement</h2>
+<h2>The three survivor benefit choices at retirement</h2>
 <p>The election is made once, on your retirement application, and it shapes your income and your spouse's for decades. ${h.src('opm_survivor_benefits', "OPM's survivor benefits page")} sets out the options for FERS. The maximum survivor annuity pays your spouse ${p0(S.fullBenefit)} of your annuity and reduces your own by ${p0(S.fullCost)}. The partial survivor annuity pays ${p0(S.partialBenefit)} and reduces yours by ${p0(S.partialCost)}. With no survivor annuity, nothing is taken from your payments and nothing continues after your death. If you are married at retirement, your spouse must consent to the partial benefit or to none; otherwise the full one applies.</p>
 ${h.table(['Election', 'Your annuity is cut by', `On ${K.usd(ann)}/mo`, 'Spouse receives', `On ${K.usd(ann)}/mo`], [
   ['Full', p0(S.fullCost), `-${K.usd(fullCost)}`, p0(S.fullBenefit), K.usd(fullBen)],

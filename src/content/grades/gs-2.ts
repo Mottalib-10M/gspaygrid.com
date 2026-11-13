@@ -16,7 +16,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-2 Pay 2026: Salary by Step, Special Rates and Locality',
   description: `GS-2 salary 2026: ${K.usd(rus1.annual)} at step 1 in most areas under special rate table 001M, ${K.usd(sf1.annual)} in San Francisco. Every step, hourly pay, step dates and the GS-3 move.`,
-  intro: 'A first-job grade, paid almost everywhere from OPM table 001M rather than the locality tables. Set your county to check.',
+  intro: 'GS-2 is a first-job grade, paid almost everywhere from OPM table 001M rather than the locality tables. Set your county to check.',
   resume: `GS-2 is an entry grade for clerical, office and aide positions, the kind of first federal job where OPM qualification standards generally accept a high school diploma or a short period of work experience. In ${K.P.year} the base table puts GS-2 step 1 at ${K.usd(rus1.base)} and step 10 at ${K.usd(rus10.base)}, but those rates are not what employees receive. Nationwide special rate table 001M pays ${K.usd(sp[0])} at step 1 and ${K.usd(sp[9])} at step 10 wherever it is higher than the locality rate, which covers ${K.AREAS.length - local1.length} of the 58 locality areas at step 1. Only ${local1.map((a) => a.short).join(', ')} pays more through locality, ${K.usd(sf1.annual)}. At step 10 a handful of large metros pass 001M too: New York pays ${K.usd(ny10.annual)}. The hourly rate at step 1 is ${K.usd2(rus1.hourly)}, overtime ${K.usd2(rus1.overtime)}, and each within-grade increase adds ${K.usd(sp[1] - sp[0])} a year.`,
   body: (h) => `
 <h2>What GS-2 work looks like</h2>

@@ -21,7 +21,7 @@ export default defineArea({
   slug: 'huntsville',
   title: 'Huntsville Locality Pay 2026: GS Rates for North Alabama',
   description: `Huntsville locality pay 2026 is ${K.dec(a.pct, 2)} %: GS-12 step 1 pays ${K.usd(g12.annual)}, GS-13 ${K.usd(g13.annual)}. The ${nCounties} Alabama and Tennessee counties, promotions and the Birmingham gap.`,
-  intro: `North Alabama's federal workforce is paid ${K.dec(a.pct, 2)} % above the base table in ${K.P.year}, more than Birmingham or rural Alabama.`,
+  intro: `Huntsville locality pay lifts North Alabama's federal workforce ${K.dec(a.pct, 2)} % above the base table in ${K.P.year}, more than Birmingham or rural Alabama.`,
   resume: `The Huntsville-Decatur locality pay area adds ${K.dec(a.pct, 2)} % to the General Schedule base table in ${K.P.year}, the same percentage as in 2025 because Executive Order 14368 froze every locality and put the ${K.dec(K.RAISE, 1)} % raise into the base rates. It ranks ${ord(rank)} of the ${K.AREAS.length} areas and is one of the ${alAreas.length} named areas that include Alabama counties, between ${atl.short} at ${K.dec(atl.pct, 2)} % and ${bh.short} at ${K.dec(bh.pct, 2)} %. The area takes in ${nCounties} counties: ${join(al)} in Alabama, plus ${others.map((o) => `${join(o.names)} in ${K.STATE_NAMES[o.st]}`).join(' and ')}. A GS-9 step 1 earns ${K.usd(g9.annual)}, a GS-11 ${K.usd(g11.annual)}, a GS-12 ${K.usd(g12.annual)}, a GS-13 ${K.usd(g13.annual)}, a GS-14 ${K.usd(g14.annual)} and a GS-15 ${K.usd(g15.annual)}. Compared with Birmingham, at ${K.dec(bh.pct, 2)} %, the same GS-13 step 1 is paid ${K.usd(g13.annual - K.pay(13, 1, 'BH').annual)} more a year.`,
   body: (h) => `
 <h2>A defense workforce at every grade</h2>

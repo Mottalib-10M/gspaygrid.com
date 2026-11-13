@@ -19,7 +19,7 @@ export default defineArea({
   where: ['MA', 'Suffolk County'],
   title: 'Boston Locality Pay 2026: GS Pay Table for New England',
   description: `Boston locality pay 2026 is ${K.dec(a.pct, 2)} % in ${st.length} states: GS-11 step 1 pays ${K.usd(g(11))}, GS-13 ${K.usd(g(13))}. Counties in MA, RI, NH, ME, CT and VT, with Hartford compared.`,
-  intro: `Six New England states share one Boston rate of ${K.dec(a.pct, 2)} %. Pick your state and county to see whether your office is inside.`,
+  intro: `Six New England states share one Boston locality pay rate of ${K.dec(a.pct, 2)} %. Pick your state and county to see whether your office is inside.`,
   resume: `The Boston-Worcester-Providence locality pay area adds ${K.dec(a.pct, 2)} % to General Schedule base pay in ${K.P.year}, the rate it already had in 2025, and stands ${rank}th among the ${K.AREAS.length} areas. Its reach is unusual: ${n} counties spread over ${st.length} states, ${of('MA').length} in Massachusetts, ${of('NH').length} in New Hampshire, ${of('RI').length} in Rhode Island, ${of('ME').length} in Maine, ${of('VT').length} in Vermont and ${of('CT').length} in Connecticut. ${whole.length ? `Every listed county of ${whole.join(' and ')} is in this area. ` : ''}Pay at step 1 runs ${K.usd(g(5))} for GS-5, ${K.usd(g(7))} for GS-7, ${K.usd(g(9))} for GS-9, ${K.usd(g(11))} for GS-11, ${K.usd(g(12))} for GS-12 and ${K.usd(g(13))} for GS-13. At the top, GS-15 steps ${firstCap} to 10 stop at the ${K.usd(K.CAP)} cap, ${capped} capped cells in all. The Hartford area next door is only ${K.dec(a.pct - har.pct, 2)} points lower, which makes a GS-12 step 1 just ${K.usd(g(12) - g(12, 1, 'HAR'))} apart between the two.`,
   body: (h) => `
 <h2>A state-by-state reading of the list</h2>

@@ -14,7 +14,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-3 Salary 2026: Step Rates, Table 001M and Locality Pay',
   description: `GS-3 pay 2026: ${K.usd(rus1.annual)} at step 1 in Rest of U.S. through special table 001M, ${K.usd(dc1.annual)} in Washington DC and ${K.usd(sf1.annual)} in San Francisco. Hourly rates and steps.`,
-  intro: 'The grade where table 001M and locality pay start to compete. Pick your county to see which one sets your rate.',
+  intro: 'GS-3 is the grade where table 001M and locality pay start to compete. Pick your county to see which one sets your rate.',
   resume: `GS-3 covers clerks, office assistants, aides and trainees who work with more independence than at GS-2. For many of these series, OPM qualification standards generally accept one year of education above high school or general work experience in its place. The ${K.P.year} GS-3 base table starts at ${K.usd(rus1.base)}, and special rate table 001M, at ${K.usd(sp[0])} for step 1 and ${K.usd(sp[9])} for step 10, sets the pay in most of the country, Rest of U.S. included. GS-3 is also where the large metros begin to pay more through locality: at step 1, ${loc1.length} of the 58 areas beat table 001M, among them Washington (${K.usd(dc1.annual)}), New York (${K.usd(ny1.annual)}) and ${K.area('SF').short} (${K.usd(sf1.annual)}). By step 10 the count reaches ${loc10.length} areas. Hourly pay at step 1 in Rest of U.S. is ${K.usd2(rus1.hourly)}, overtime ${K.usd2(rus1.overtime)}, and each step is worth ${K.usd(sp[1] - sp[0])} a year where 001M applies.`,
   body: (h) => `
 <h2>Two pay systems inside one grade</h2>

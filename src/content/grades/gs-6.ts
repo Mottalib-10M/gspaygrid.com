@@ -13,7 +13,7 @@ export default defineGrade({
   grade: g,
   title: 'GS-6 Pay Scale 2026: Salary, Steps and Hourly by Locality',
   description: `GS-6 pay 2026: ${K.usd(rus1.annual)} to ${K.usd(rus10.annual)} in Rest of U.S., ${K.usd(dc1.annual)} at step 1 in Washington DC. Technician and assistant grade, step dates and the promotion rules.`,
-  intro: 'A grade of the one-grade-interval series: technicians and assistants who move up one grade at a time. Set your county to see your step.',
+  intro: 'GS-6 is a grade of the one-grade-interval series: technicians and assistants who move up one grade at a time. Set your county to see your step and pay.',
   resume: `GS-6 belongs to the one-grade-interval world of the General Schedule: technical, clerical and assistant series where careers move 5, 6, 7, 8 rather than 5, 7, 9. Typical GS-6 employees are technicians and specialized assistants who apply established procedures to a full range of cases, and in some series GS-6 is the full-performance level. In ${K.P.year} the base GS-6 rates run from ${K.usd(rus1.base)} at step 1 to ${K.usd(rus10.base)} at step 10. With locality pay, step 1 is ${K.usd(rus1.annual)} in Rest of U.S., ${K.usd(sa1.annual)} in San Antonio, ${K.usd(sea1.annual)} in Seattle and ${K.usd(dc1.annual)} in the Washington area. Each within-grade increase adds ${K.usd(inc)} a year in Rest of U.S., and step 10 there pays ${K.usd(rus10.annual)}. The hourly rate at step 1 is ${K.usd2(rus1.hourly)}, with overtime at ${K.usd2(rus1.overtime)}. A promotion from GS-5 to GS-6 typically adds a few thousand dollars, and the time-in-grade rule for it ends on January 19, 2027.`,
   body: (h) => `
 <h2>One grade at a time</h2>

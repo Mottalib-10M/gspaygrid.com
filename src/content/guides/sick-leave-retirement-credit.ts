@@ -17,7 +17,7 @@ export default defineGuide({
   title: 'Sick Leave Retirement Credit 2026: FERS Hours to Annuity',
   description: `Sick leave retirement credit 2026: ${K.num(HY)} unused hours add one year to your FERS annuity computation, at 100 %, but never to eligibility or a deferred annuity.`,
   h1: 'Sick leave retirement credit in 2026: what unused hours add to a FERS annuity',
-  intro: 'Unused sick leave is not paid out when you leave federal service, but it can raise your FERS annuity. Type your hours and your high-3 to see by how much.',
+  intro: 'Unused sick leave is not paid out when you leave federal service, but as a retirement credit it can raise your FERS annuity. Type your hours and your high-3 to see by how much.',
   resume: `Under FERS, 100 % of your unused sick leave has counted in the annuity computation since 2014: OPM converts the hours into service at the rate of ${K.num(HY)} hours for one year, about 174 hours for one month, and adds them to your years before applying the 1 % or 1.1 % multiplier. With ${K.num(1500)} hours, that is ${mo1500} extra months; on a ${K.usd(H3)} high-3 at 1 %, the annuity rises by about ${K.usd(gain1500)} a year, for life and with every later COLA. A 30-year retiree at the MRA goes from ${K.usd(without.gross)} to ${K.usd(withSick.gross)} a year before any survivor reduction. Sick leave never counts toward eligibility: 29 years and 10 months of service plus a year of sick leave does not make the 30 years needed at the MRA. It is credited to an immediate or MRA+10 annuity only. If you leave federal service and take a deferred annuity, the hours are lost, and they are never paid in cash.`,
   tool: 'sick',
   toolArg: { hrs: 1500, h3: H3, mul: '1' },
@@ -28,7 +28,7 @@ export default defineGuide({
     { q: 'Is FERS sick leave credit still 50 percent?', a: 'No. Section 8415(m)(2)(B) set the applicable percentage at 50 % for separations up to December 31, 2013, and at 100 % for separations after that date. Any FERS employee who retires in 2026 therefore gets credit for every unused hour on the books at separation, as long as the annuity is an immediate one and the hours were never paid in cash.' },
   ],
   body: (h) => `
-<h2>From hours to months of service</h2>
+<h2>Sick leave credit: from hours to months of service</h2>
 <p>When you retire, your agency reports your unused sick leave on the final leave statement. OPM divides the hours by ${K.num(HY)}, the hours of a work year, and converts the result into years, months and days. That credit is added to your creditable service, and the total is used in the annuity formula. Any days left over that do not make a full month are dropped. The conversion chart OPM uses is in ${h.src('opm_handbook_50', 'chapter 50 of the CSRS/FERS Handbook')}.</p>
 ${h.table(['Unused hours', 'Months added', 'Annuity gain per year at 1 %', 'At 1.1 %'], [500, 1000, 1500, HY, 3000, 4000].map((x) => { const m = K.sick(x); return [K.num(x), String(m), K.usd((H3 * K.P.fers.regular.base * m) / 12), K.usd((H3 * K.P.fers.regular.enhanced * m) / 12)]; }), `With a ${K.usd(H3)} high-3, before survivor reduction. Months are whole months, as in the computation.`, ['l', 'r', 'r', 'r'])}
 <p>The value of an hour depends on your high-3 and your multiplier, not on your grade at the time you earned it. A month of credit is worth one-twelfth of 1 % of the high-3 a year, or one-twelfth of 1.1 % if you retire at 62 or later with 20 years. On a ${K.usd(H3)} high-3, that is ${K.usd(H3 * K.P.fers.regular.base / 12)} a year per month of credit at 1 %.</p>

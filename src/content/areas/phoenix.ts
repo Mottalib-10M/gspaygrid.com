@@ -20,7 +20,7 @@ export default defineArea({
   where: ['AZ', 'Maricopa County'],
   title: 'Phoenix Locality Pay 2026: GS Pay Table and Arizona Map',
   description: `Phoenix locality pay 2026 is ${K.dec(a.pct, 2)} % for Maricopa, Pinal and Gila counties: GS-11 step 1 pays ${K.usd(g(11))}, GS-13 ${K.usd(g(13))}. Tucson, the 2026 raise and 2027.`,
-  intro: `Three Arizona counties, ${join(names)}, share the Phoenix-Mesa rate of ${K.dec(a.pct, 2)} % in ${K.P.year}.`,
+  intro: `Three Arizona counties, ${join(names)}, share the Phoenix-Mesa locality pay rate of ${K.dec(a.pct, 2)} % in ${K.P.year}.`,
   resume: `Phoenix-Mesa is the locality pay area for federal worksites in ${join(names)}, Arizona. In ${K.P.year} it adds ${K.dec(a.pct, 2)} % to the General Schedule base table, which ranks it ${ord(rank)} of the ${K.AREAS.length} areas and makes it the highest-paid of the three named areas with Arizona counties. The percentage is the same as in 2025, because Executive Order 14368 froze every locality and raised the base table ${K.dec(K.RAISE, 1)} %. A GS-5 step 1 earns ${K.usd(g(5))}, a GS-7 ${K.usd(g(7))}, a GS-9 ${K.usd(g(9))}, a GS-11 ${K.usd(g(11))}, a GS-12 ${K.usd(g(12))}, a GS-13 ${K.usd(g(13))} and a GS-14 ${K.usd(g(14))}. Tucson, to the south, pays ${K.dec(tu.pct, 2)} %, which is ${K.usd(g(12) - g(12, 1, 'TU'))} less at GS-12 step 1. Arizona counties outside the three named areas, such as Yavapai, Coconino and Yuma, are in Rest of U.S. at ${K.dec(rus.pct, 2)} %.`,
   body: (h) => `
 <h2>Arizona on three tables, plus Rest of U.S.</h2>

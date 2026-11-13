@@ -20,7 +20,7 @@ export default defineArea({
   where: ['CA', 'San Francisco County'],
   title: 'San Francisco Locality Pay 2026: Highest GS Rates and Cap',
   description: `San Francisco locality pay 2026 is ${K.dec(a.pct, 2)} %, the highest GS rate: GS-11 step 1 pays ${K.usd(g(11))}, GS-13 ${K.usd(g(13))}. The ${counties.length} Bay Area counties and the capped cells.`,
-  intro: `No locality pays more: ${K.dec(a.pct, 2)} % above the base table, so much that the cap cuts into GS-14. Pick your county to confirm.`,
+  intro: `No locality pays more than San Francisco: ${K.dec(a.pct, 2)} % above the base table, so much that the cap cuts into GS-14. Pick your county to confirm.`,
   resume: `The San Jose-San Francisco-Oakland locality pay area carries the highest percentage on the General Schedule in ${K.P.year}: ${K.dec(a.pct, 2)} %, frozen at its 2025 level by Executive Order 14368 while base rates rose ${K.dec(K.RAISE, 1)} %. The next area, ${second.short}, is ${K.dec(a.pct - second.pct, 2)} points lower. Starting salaries reflect the gap: GS-5 step 1 earns ${K.usd(g(5))}, GS-7 ${K.usd(g(7))}, GS-9 ${K.usd(g(9))}, GS-11 ${K.usd(g(11))}, GS-12 ${K.usd(g(12))} and GS-13 ${K.usd(g(13))}. The percentage is so high that the ${K.usd(K.CAP)} pay cap binds earlier than anywhere else: ${cap15} of the ten GS-15 steps and ${cap14} GS-14 steps show the capped figure. The area covers ${counties.length} California counties, from Sonoma and Napa to Monterey and San Benito, and inland as far as San Joaquin, Stanislaus, Merced and Calaveras. Against Rest of U.S., a GS-12 step 1 earns ${K.usd(g(12) - g(12, 1, 'RUS'))} more a year.`,
   body: (h) => `
 <h2>Why the rate stops climbing at GS-14</h2>
